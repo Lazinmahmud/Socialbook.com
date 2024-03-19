@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Socialbook</title>
+</head>
+<body>
+  
+ <nav>
+   
+   <div class="nav-column">
+     <div class="nav-left">
+      <div class="logo">
+        <img src="logo.png">
+          </div>
+         </div>
+          <div class="middle-container">
+      <div class="nav-middle">
+     <div class="icon-box">
+    <div id="homeIcon" class="nav-icon">
+   <img id="homeBlue" src="home-blue.png">
+  <img id="homeGray" src="home-gray.png">
+ <div class="new">5</div>
+  </div>
+    </div>
+   
+       <div class="icon-box">
+        <div id="videoIcon" class="nav-icon">
+        <img id="videoBlue" src="friends-blue.png">
+       <img id="videoGray" src="friends-gray.png">
+     <div class="new">5</div>
+    </div>
+    </div>
+   
+   <div class="icon-box">
+     <div id="friendIcon" class="nav-icon">
+     <img id="friendsGray" src="video-gray.png">
+     <img id="friendsBlue" src="video-Blue.png">
+     <div class="new">5+</div>
+   </div>
+   </div>
+   
+   <div class="icon-box">
+     <div id="notificationIcon" class="nav-icon">
+     <img id="nGray" src="notification-gray.png">
+     <img id="nBlue" src="notification-blue.png">
+     <div class="new">5+</div>
+   </div>
+   </div>
+   </div>
+   <div id="underline"></div>
+   </div>
+   
+   <div class="nav-right">
+     <div onclick="toggleSearchBox()" class="search-box">
+       <img src="search.png">
+     </div>
+      <div class="profile" onclick="toggleDropdownMenu()">
+        <img src="profile.jpg">
+       </div>
+   </div>
+   </div>
+   
+   <div class="nav_media_query">
+     <div class="nav-top">
+       <div class="nav-logo-media-query">
+         <img src="logo-blue.png">
+       </div>
+       <div class="mobail-search-box">
+         <img src="search.png">
+       </div>
+       <div class="mobail-menu">
+         <img src="menu.png">
+       </div>
+     </div>
+     <div class="nav-bottom">
+       <a href="#"id="homeNav" class="navIcon">
+         <img id="home_Blue" src="home-blue.png">
+         <img id="home_Gray" src="home-gray.png">
+         <div class="nav-new">10+</div>
+       </a>
+       <div id="friendNav" class="navIcon">
+         <img id="frindGray" src="friends-Gray.png">
+         <img id="frindBlue" src="friends-blue.png">
+         <div class="nav-new">10+</div>
+       </div>
+       <div id="msngerNav" class="navIcon">
+         <img id="msngerGray" src="messenger-gray.png">
+         <img id="msngerBlue" src="messanger-blue.png">
+         <div id="msngr" class="nav-new">10+</div>
+       </div>
+       <div id="notifyNav" class="navIcon">
+         <img id="notifyGray" src="notification-gray.png">
+         <img id="notifyBlue" src="notification-blue.png">
+         <div id="newNotify" class="nav-new">1</div>
+       </div>
+       <div id="vdoNav" class="navIcon">
+         <img id="vdoGray" src="video-gray.png">
+         <img id="vdoBlue" src="video-blue.png">
+         <div class="nav-new">10+</div>
+       </div>
+     </div>
+   </div>
+    
+ </nav>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div id="searchContainer" class="search-container">
+   <div class="search-input">
+     <input class="searchBoxFocus" type="search" placeholder="Search">
+   </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div id="dropdownMenu" class="dropdown-menu">
+   <div class="menu-main-content">
+     <div class="menu-home">
+       <div class="profile-card">
+       <div class="profile-circle">
+        <img src="profile.jpg">
+      </div>
+      <div class="profile-name">
+        <h4 class="profileName">Lazim Mahmud</h4>
+      </div>
+     </div>
+     <div class="menu-item">
+       <div class="icon-img">
+         <img src="setting.png">
+       </div>
+       <p>Settings & privacy</p>
+       <div class="arrow-icon">
+         <img src="arrow.png">
+       </div>
+     </div>
+     <div id="theameClick" class="menu-item">
+       <div class="icon-img">
+         <img src="display.png">
+       </div>
+       <p>Dark Mode</p>
+       <div class="arrow-icon">
+         <img src="arrow.png">
+       </div>
+     </div>
+     <div class="menu-item">
+       <div class="icon-img">
+         <img src="help.png">
+       </div>
+       <p>Help & support</p>
+       <div class="arrow-icon">
+         <img src="arrow.png">
+       </div>
+     </div>
+     <div id="logout" class="menu-item">
+       <div class="icon-img">
+         <img src="logout.png">
+       </div>
+       <p>Logout</p>
+       <div class="arrow-icon">
+         <img src="arrow.png">
+       </div>
+     </div>
+     </div>
+     
+     
+     <div class="display-accessibility">
+       <div class="theme-title">
+         <i class='bx bx-arrow-back' ></i>
+         <h4>Dark Mode</h4>
+       </div>
+       <br>
+       <div class="select-btn-box">
+          <label for="option1">Off</label>
+          <input type="radio" id="option1" name="radioOption" value="option1" checked>
+         </div>
+         
+       <div class="select-btn-box">
+         <label for="option2">On</label>
+         <input type="radio" id="option2" name="radioOption" value="option2">
+       </div>
+       
+         <div class="select-btn-box">
+          <div>
+            <label for="option3">Automatic</label>
+            <p>We'll automatically adjust the display based on your device's system settings.</p>
+          </div>
+          <input type="radio" id="option3" name="radioOption" value="option3">
+         </div>
+     </div>
+   </div>
+   
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="website-body">
+   
+   <div class="main-feed-container">
+   <div class="main-container">
+     <div class="feed-container">
+       
+       <div class="post-create-container-media">
+     <div class="post-create-display-flex">
+       <div class="profile-img">
+       <img id="profileImg" src="profile.jpg">
+     </div>
+     <div class="input-container-media">
+       <p>Create a new post</p>
+     </div>
+     </div>
+     <div class="hr"></div>
+     <div class="three-post-container">
+       <div class="image-post">
+         <img src="post.png">
+         <p>Tweet</p>
+       </div>
+       <div class="image-post">
+         <img src="photo.png">
+         <p>Photos</p>
+       </div>
+       <div class="image-post">
+         <img src="reels.png">
+         <p>Videos</p>
+       </div>
+       
+     </div>
+   </div>
+       
+       
+       
+     <div class="main-story-container">
+     <div class="story-scroll-container">
+       <div id="CreateStory" class="create-stroy">
+         <div class="story-img">
+           <img id="profileImg" src="profile.jpg">
+         </div>
+         <div class="create-story-bg">
+           <div class="center-line">
+             <div class="create-circle">
+               <i class='bx bx-plus'></i>
+             </div>
+           </div>
+           <h4>Create Story</h4>
+         </div>
+       </div>
+       
+      <div class="all-user-story-container">
+        <div class="user-story">
+         <div class="story-profile">
+           <img src="profile.jpg">
+         </div>
+         <div class="story-text-content">
+           <h4>My name is <br>lazim mahmud</h4>
+         </div>
+       </div>
+       <div class="user-story">
+         <div class="story-profile">
+           <img src="profile.jpg">
+         </div>
+         <div class="story-text-content">
+           <h4>My name is <br>lazim mahmud</h4>
+         </div>
+       </div>
+       <div class="user-story">
+         <div class="story-profile">
+           <img src="profile.jpg">
+         </div>
+         <div class="story-text-content">
+           <h4>My name is <br>lazim mahmud</h4>
+         </div>
+       </div>
+       <div class="user-story">
+         <div class="story-profile">
+           <img src="profile.jpg">
+         </div>
+         <div class="story-text-content">
+           <h4>My name is <br>lazim mahmud</h4>
+         </div>
+       </div>
+       <div class="user-story">
+         <div class="story-profile">
+           <img src="profile.jpg">
+         </div>
+         <div class="story-text-content">
+           <h4>My name is <br>lazim mahmud</h4>
+         </div>
+       </div>
+      </div>
+       
+       
+       
+       <div class="loading-story-container">
+         <div class="loading-user-story">
+         <div class="loading-story-profile">
+           
+         </div>
+         <div class="story-text-content">
+           
+         </div>
+       </div>
+       <div class="loading-user-story">
+         <div class="loading-story-profile">
+           
+         </div>
+         <div class="story-text-content">
+           
+         </div>
+       </div>
+       <div class="loading-user-story">
+         <div class="loading-story-profile">
+           
+         </div>
+         <div class="story-text-content">
+           
+         </div>
+       </div>
+       </div>
+       
+     </div>
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   <div class="post-create-container">
+     <div class="post-create-display-flex">
+       <div id="profilePageOpen" class="profile-img">
+       <img id="profileImg" src="profile.jpg">
+     </div>
+     <div class="input-container">
+       <p>Create a new post</p>
+     </div>
+     </div>
+     <div class="hr"></div>
+     <div class="three-post-container">
+       <div id="blogPost" class="image-post">
+         <img src="post.png">
+         <p>Tweet</p>
+       </div>
+       <div class="image-post">
+         <img src="photo.png">
+         <p>Photos</p>
+       </div>
+       <div class="image-post">
+         <img src="reels.png">
+         <p>Videos</p>
+       </div>
+       
+     </div>
+   </div>
+   
+   
+   <div class="upload-story-container">
+     <p>Uploading Story...</p>
+    <div class="story-upload-progress">
+     <div class="progress-bar" id="progress"></div>
+    </div>
+   </div>
+   
+   
+   
+  <div class="loading-feed-container">
+    <div class="loading-feed">
+     <div class="feed-post-header">
+      <div class="loading-profile-img"></div>
+      <div class="loading-profile-bar-container">
+        <div class="bar-one"></div>
+        <div class="bar-two"></div>
+        </div>
+     </div>
+     <div class="loading-bottom-line">
+       <div class="loading-bottom-bar"></div>
+       <div class="loading-bottom-bar"></div>
+       <div class="loading-bottom-bar"></div>
+     </div>
+     </div>
+     <div class="loading-feed">
+     <div class="feed-post-header">
+      <div class="loading-profile-img"></div>
+      <div class="loading-profile-bar-container">
+        <div class="bar-one"></div>
+        <div class="bar-two"></div>
+        </div>
+     </div>
+     <div class="loading-bottom-line">
+       <div class="loading-bottom-bar"></div>
+       <div class="loading-bottom-bar"></div>
+       <div class="loading-bottom-bar"></div>
+     </div>
+     </div>
+   </div>
+   
+   <div class="all-feed-container">
+     <div class="text-feed-post">
+     <div class="feed-post-header">
+       <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+    <h4>Lazim Mahmud</h4>
+    <div class="post-time">
+    <p class="time-text">Just now</p>
+    <span>•</span>
+    <i class='bx bx-world'></i>
+</div>  
+</div>
+       <div class="cross-btn">
+         <img src="three_dot.png">
+       </div>
+     </div>
+     <div class="text-post-container">
+       <p></p>
+     </div>
+    <div class="like-comment-share-show-box">
+       <p>25 Peoples</p>
+       <div class="comment-and-share">
+         <p>5 Comments</p>
+         <span class="dot">•</span>
+         <p>10 shares</p>
+       </div>
+     </div>
+     <div class="main-activity-icon-container">
+       <div class="icon-container">
+         <div class="activity-btn-like" onclick="toggleLike()">
+         <img id="likeBlue" src="like-red.png">
+          <img id="likeGray" src="like.png">
+          <p class="like-count">2</p>
+         </div>
+         <div class="activity-btn">
+           <img src="comment.png">
+         </div>
+         <div class="activity-btn">
+           <img src="share.png">
+         </div>
+       </div>
+     </div>
+   </div>
+   
+  <div class="profile-upload-feed-post">
+     <div class="feed-post-header">
+       <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+    <h4>Lazim Mahmud <span class="profile-update-text">Update his profile picture</span></h4>
+          <div class="post-time">
+            <p class="time-text">Just now</p>
+            <span>•</span>
+            <i class='bx bx-world'></i>
+          </div>  
+         </div>
+       <div class="cross-btn">
+         <img src="three_dot.png">
+       </div>
+     </div>
+     <div  class="post-profile-img-display-box">
+       <img src="profile.jpg">
+     </div>
+     <div class="like-comment-share-show-box">
+       <p class=="like-count">20</p>
+       <div class="comment-and-share">
+         <p>5 Comments</p>
+         <span class="dot">•</span>
+         <p>10 shares</p>
+       </div>
+     </div>
+     <div class="main-activity-icon-container">
+       <div class="icon-container">
+         <div class="activity-btn-like" onclick="toggleLike()">
+         <img id="likeBlue" src="like-red.png">
+          <img id="likeGray" src="like.png">
+         <p class="like-count">0</p>
+         </div>
+         <div class="activity-btn">
+           <img src="comment.png">
+         </div>
+         <div class="activity-btn">
+           <img src="share.png">
+         </div>
+       </div>
+     </div>
+   </div>
+   
+   <div class="feed-post-container">
+     <div class="feed-post-header">
+       <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+         <h4>Lazim Mahmud</h4>
+         <div class="post-time">
+         <p class="time-text">Just now</p>
+        <span>•</span>
+         <i class='bx bx-world'></i>
+       </div> 
+       </div>
+       <div class="cross-btn">
+         <img src="three_dot.png">
+       </div>
+     </div>
+     <div class="post-text">
+      <p>জমি সহ বাড়ি বিক্রয় জমির পরিমাণ তিন কাঠা 
+পাঁচতালার প্ল্যান সাড়ে পাঁচ তালা কমপ্লিট ২ ইউনিটের  বাড়ি।</p>
+     </div>
+     <div class="post-img">
+       <img id="profileImg" src="profile.jpg">
+     </div>
+     <div class="like-comment-share-show-box">
+       <p>Lazim Mahmud</p>
+       <p>5 Comments</p>
+       <p>10 shares</p>
+     </div>
+     <div class="main-activity-icon-container">
+       <div class="icon-container">
+         <div class="activity-btn-like" onclick="toggleLike()">
+         <img id="likeBlue" src="like-red.png">
+          <img id="likeGray" src="like.png">
+         <p class="like-count">999</p>
+         </div>
+         <div class="activity-btn">
+           <img src="comment.png">
+         </div>
+         <div class="activity-btn">
+           <img src="share.png">
+         </div>
+       </div>
+     </div>
+     
+     
+     
+     
+     <div class="comment-display-container">
+       <div class="user-comment-container">
+         <div class="user-comment-profile-container">
+           <div class="user-comment-profile">
+             <img src="profile.jpg">
+           </div>
+         </div>
+         <div class="comment-content">
+           <p>❤️❤️❤️</p>
+         </div>
+       </div>
+     </div>
+     
+     
+     
+     
+     <div class="comment-container">
+       <div class="comment-profile-container">
+         <div class="comment-profile">
+         <img src="profile.jpg">
+       </div>
+       </div>
+       <div class="comment-input">
+         <textarea class="4" rows="4" placeholder="Write a public comment..."></textarea>
+         <div class="comment-send-btn">
+           <i class='bx bxs-send'></i>
+         </div>
+       </div>
+     </div>
+   </div>
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   </div>
+   </div>
+   
+   <div class="sidebar-container">
+     
+     <div class="friends_list_container">
+       <div class="friends_list_title">
+         <h4>Contacts</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Lazim Mahmud</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Mark Jukerbarg</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Bill Gates</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Elone Musk</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Mukesh Ambani</h4>
+       </div>
+       <div class="friend_list">
+         <div class="friend_list_profile">
+           <img src="profile.jpg">
+           <div class="online"></div>
+         </div>
+         <h4>Sundor Pechai</h4>
+       </div>
+     </div>
+     
+     
+   </div>
+   
+   </div>
+   
+   <div class="main-video-container">
+     <div class="video-sidebar">
+       <div class="title-video">
+         <h4>Video</h4>
+         <div class="video-search">
+           <i class='bx bx-search' ></i>
+           <input type="search" placeholder="Search Videos">
+         </div>
+       </div>
+     </div>
+     <div class="video-feed-container">
+       <div class="video-feed">
+         <div class="feed-post-header">
+       <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+         <h4>Lazim Mahmud</h4>
+         <div class="post-time">
+           <span>Just now</span>
+           <span>•</span>
+           <i class='bx bx-world'></i>
+         </div>
+       </div>
+       <div class="cross-btn">
+         <img src="three_dot.png">
+       </div>
+     </div>
+     <div class="video-play-container">
+       <iframe src="https://www.youtube.com/embed/ip0aqxhAMjI?si=BzynYpGHVipbMBd8" frameborder="0" allowfullscreen></iframe>
+     </div>
+       </div>
+     </div>
+   </div>
+   
+   <div class="opacity-black">
+    <div class="feed-post-create-container">
+     <div class="create-post-header">
+         <h4>Create post</h4>
+         <div class="close-btn">
+           <img src="cross.png">
+         </div>
+       </div>
+      <div class="profile-container-create-post">
+         <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+         <h4>Lazim Mahmud</h4>
+         <div class="post-time">
+           <span>Only friends can see this post</span>
+         </div>
+       </div>
+       </div>
+       <div class="post-text-input-container">
+         <textarea cols="5" rows="5" placeholder="Share your thoughts on socialbook?"></textarea>
+       </div>
+       
+       
+      <label for="fileInput" class="image-select-container">
+    <img src="photo.png">
+    <p>Select a photo</p>
+</label>
+<input id="fileInput" type="file" accept="image/*" style="display: none;">
+
+<div class="select-img-display-container">
+    <img id="selectedImage">
+</div>
+       
+       
+       <div class="post-buton">
+         <button class="post-btn">POST</button>
+       </div>
+     </div>
+     <div class="blog-post-create-container">
+     <div class="create-post-header">
+         <h4>Create blog</h4>
+         <div class="close-btn-blog-post">
+           <img src="cross.png">
+         </div>
+       </div>
+      <div class="profile-container-create-post">
+         <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+         <h4>Lazim Mahmud</h4>
+         <div class="post-time">
+           <span>Only friends can see this post</span>
+         </div>
+       </div>
+       </div>
+       <div class="post-text-input-container">
+         <textarea id="user-input" cols="10" rows="10" placeholder="Create new blog on socialbook?"></textarea>
+       </div>
+       
+       
+       <div class="post-buton">
+         <button id="post-button" class="post-btn">POST</button>
+       </div>
+     </div>
+   </div>
+   
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   <div id="friendPage" class="friend-page-container"></div>
+   
+   <div  class="open_selcreen_page">
+     <div class="open_screen_logo">
+       <img src="logo.png">
+     </div>
+     <div class="from_text">
+       <p>from</p>
+     </div>
+     <div class="Socialbook_in_Corporation">
+       <h4>Socialbook</h4>
+     </div>
+   </div>
+   
+   
+   <div id="profile-page">
+   
+   
+     <div class="cover-photo-container">
+       <div id="coverCameraClick" class="cover-upload-box">
+         <i class='bx bxs-camera'></i>
+       </div>
+       <img id="selectedImage" src="cover.jpg">
+     </div>
+     <div class="profile-photo-container">
+       <div id="profileCameraClick" class="profile-upload-box">
+         <i class='bx bxs-camera'></i>
+       </div>
+       <img class="selectedImg" src="profile.jpg">
+     </div>
+     <div class="profile-name-box">
+       <h4>Lazim Mahmud</h4>
+     </div>
+     <div class="bio-container">
+       <p>Hello gay's it's me a boy lazim mahmud upol.This is official facebook account of Lazim Mahmud Upol </p>
+     </div>
+     <div class="profile-btn-container">
+     <div class="create-story-btn">
+       <button id="profilePageCreateStory" class="create-story">Create Story</button>
+     </div>
+     <div class="edit-profile-btn">
+       <button class="edit-profile">Edit Profile</button>
+       <button class="profile-menu-btn">
+         <i class='bx bx-dots-horizontal-rounded'></i>
+       </button>
+     </div>
+     </div>
+     
+   </div>
+   
+   
+   <div class="natification-page">
+     <div class="app-notification-container">
+       <div class="notification-profile-container">
+         <div class="notification-profile">
+           <img src="logo.png">
+         </div>
+       </div>
+       <div class="notification-content">
+         <p>We have notified you that your account has been properly logged in to your device.</p>
+         <p id="loging-time"></p>
+       </div>
+     </div>
+   </div>
+   
+ 
+ <div class="create-story-page-opachity">
+   <div id="createStorypage" class="create-story-page">
+   <div class="create-story-page-header">
+     <h4>Create story</h4>
+     <div id="storyPageClose" class="cross-btn-story">
+     <img src="cross.png">
+   </div>
+   </div>
+   <div class="story-content">
+     <textarea id="storyTextContent" rows="8" cols="10" placeholder="Start typing"></textarea>
+   </div>
+   
+  <div class="select-color-container">
+     <div id="cOne" class="color-circle"></div>
+     <div id="cTwo" class="color-circle"></div>
+     <div id="cThree" class="color-circle"></div>
+     <div id="cFour" class="color-circle"></div>
+     <div id="cFive" class="color-circle"></div>
+   </div>
+   <button id="shareBtn" class="share-now-btn">Share now</button>
+ </div>
+ </div>
+ 
+ 
+ 
+    <script src="script.js"></script>
+    
+    
+    <script>
+      document.getElementById("logout").addEventListener("click", function() {
+    // Remove user login info from localStorage
+    localStorage.removeItem('userLoggedIn');
+    localStorage.removeItem('userEmail');
+    
+    // Redirect to index.html page
+    window.location.href = "index.html";
+});
+
+
+
+
+    </script>
+    
+    
+    
+ 
+<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+	  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+	  
+	  
+	  
+
+	  const firebaseConfig = {
+    apiKey: "AIzaSyBIz8kZGSabIgxizxNZQFqCky04aZA3rLU",
+    authDomain: "socialbook-ff0f6.firebaseapp.com",
+    projectId: "socialbook-ff0f6",
+    storageBucket: "socialbook-ff0f6.appspot.com",
+    messagingSenderId: "758067396214",
+    appId: "1:758067396214:web:90af64252ad0d2aaa9a957"
+  };
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	  const db = getDatabase();
+	  
+	  console.log(app);
+ 
+	</script>
+
+
+
+</body>
+</html>
