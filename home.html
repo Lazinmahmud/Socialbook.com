@@ -228,6 +228,16 @@
  <div class="website-body">
    
    <div class="main-feed-container">
+     
+     
+     <div class="left-sidebar">
+       <div class="sidebar-profile-box">
+         <img src="profile.jpg">
+         <h4>Lazim Mahmud</h4>
+       </div>
+     </div>
+     
+     
    <div class="main-container">
      <div class="feed-container">
        
@@ -444,28 +454,25 @@
        </div>
      </div>
      <div class="text-post-container">
-       <p></p>
+       <p>বর্তমানে একটা মাদ্রাসায় আছি, ইসলামিক apps বানাতে চাই কুরআন ও হাদিস গবেষণা করার জন্য এবং ছাত্রদের Coding সম্পর্কে ধারণা দিতে চাই, উদ্দেশ্য ইসলাম ও মুসলিমদের ভাইদের এগিয়ে নেওয়া। আপনাদের পরামর্শ ও সহযোগিতা প্রত্যাশী।
+ Saim Shahariar</p>
      </div>
-    <div class="like-comment-share-show-box">
-       <p>25 Peoples</p>
-       <div class="comment-and-share">
-         <p>5 Comments</p>
-         <span class="dot">•</span>
-         <p>10 shares</p>
-       </div>
-     </div>
+    
      <div class="main-activity-icon-container">
        <div class="icon-container">
          <div class="activity-btn-like" onclick="toggleLike()">
          <img id="likeBlue" src="like-red.png">
           <img id="likeGray" src="like.png">
           <p class="like-count">2</p>
+          <p class="like-text">Like</p>
          </div>
          <div class="activity-btn">
            <img src="comment.png">
+           <p>Comment</p>
          </div>
          <div class="activity-btn">
            <img src="share.png">
+           <p>Share</p>
          </div>
        </div>
      </div>
@@ -494,7 +501,7 @@
      <div class="like-comment-share-show-box">
        <p class=="like-count">20</p>
        <div class="comment-and-share">
-         <p>5 Comments</p>
+         <p>0 Comments</p>
          <span class="dot">•</span>
          <p>10 shares</p>
        </div>
@@ -505,12 +512,45 @@
          <img id="likeBlue" src="like-red.png">
           <img id="likeGray" src="like.png">
          <p class="like-count">0</p>
+         <p class="like-text">Like</p>
          </div>
          <div class="activity-btn">
            <img src="comment.png">
+           <p>Comment</p>
          </div>
          <div class="activity-btn">
            <img src="share.png">
+           <p>Share</p>
+         </div>
+       </div>
+     </div>
+     
+     
+     <div class="comment-display-container">
+      <!-- <div class="user-comment-container">
+         <div class="user-comment-profile-container">
+           <div class="user-comment-profile">
+             <img src="profile.jpg">
+           </div>
+         </div>
+         <div class="comment-content">
+           <p>containeruser-comment-container</p>
+         </div>
+       </div>-->
+       
+     </div>
+     
+     
+     <div class="comment-container">
+       <div class="comment-profile-container">
+         <div class="comment-profile">
+         <img src="profile.jpg">
+       </div>
+       </div>
+       <div class="comment-input">
+         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <div class="comment-send-btn">
+           <i class='bx bxs-send'></i>
          </div>
        </div>
      </div>
@@ -540,23 +580,22 @@
      <div class="post-img">
        <img id="profileImg" src="profile.jpg">
      </div>
-     <div class="like-comment-share-show-box">
-       <p>Lazim Mahmud</p>
-       <p>5 Comments</p>
-       <p>10 shares</p>
-     </div>
+     
      <div class="main-activity-icon-container">
        <div class="icon-container">
          <div class="activity-btn-like" onclick="toggleLike()">
          <img id="likeBlue" src="like-red.png">
           <img id="likeGray" src="like.png">
          <p class="like-count">999</p>
+         <p class="like-text">Like</p>
          </div>
          <div class="activity-btn">
            <img src="comment.png">
+           <p>Comment</p>
          </div>
          <div class="activity-btn">
            <img src="share.png">
+           <p>Share</p>
          </div>
        </div>
      </div>
@@ -565,16 +604,7 @@
      
      
      <div class="comment-display-container">
-       <div class="user-comment-container">
-         <div class="user-comment-profile-container">
-           <div class="user-comment-profile">
-             <img src="profile.jpg">
-           </div>
-         </div>
-         <div class="comment-content">
-           <p>❤️❤️❤️</p>
-         </div>
-       </div>
+       
      </div>
      
      
@@ -587,7 +617,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="4" rows="4" placeholder="Write a public comment..."></textarea>
+         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -621,53 +651,6 @@
    
    <div class="sidebar-container">
      
-     <div class="friends_list_container">
-       <div class="friends_list_title">
-         <h4>Contacts</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Lazim Mahmud</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Mark Jukerbarg</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Bill Gates</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Elone Musk</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Mukesh Ambani</h4>
-       </div>
-       <div class="friend_list">
-         <div class="friend_list_profile">
-           <img src="profile.jpg">
-           <div class="online"></div>
-         </div>
-         <h4>Sundor Pechai</h4>
-       </div>
-     </div>
      
      
    </div>
