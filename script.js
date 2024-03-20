@@ -659,3 +659,51 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// comment system making
+// পেজ লোড হলে কমেন্ট সংখ্যা আপডেট করা
+window.addEventListener('load', function() {
+    // প্রথমে কমেন্টের সংখ্যা 0 হবে
+    document.querySelector('.comment-and-share p:first-child').textContent = "0 Comments";
+});
+
+// বাটন নিয়ে ক্লিক ইভেন্ট হ্যান্ডলার
+document.querySelector('.comment-send-btn').addEventListener('click', function() {
+    // ইনপুট এলিমেন্ট থেকে ইউজারের কমেন্ট টেক্সট নিতে
+    var userComment = document.querySelector('.comment-input textarea').value;
+    
+    // নতুন কমেন্ট কন্টেন্ট এলিমেন্ট তৈরি করে ইউজারের কমেন্ট এড করা
+    var newCommentContent = document.createElement('div');
+    newCommentContent.classList.add('comment-content');
+    var paragraph = document.createElement('p');
+    paragraph.textContent = userComment;
+    newCommentContent.appendChild(paragraph);
+    
+    // নতুন ইউজার কমেন্ট কন্টেন্টেই ছবি ও অন্য সব এলিমেন্ট যুক্ত করা
+    var newUserCommentContainer = document.createElement('div');
+    newUserCommentContainer.classList.add('user-comment-container');
+    var profileContainer = document.createElement('div');
+    profileContainer.classList.add('user-comment-profile-container');
+    var profile = document.createElement('div');
+    profile.classList.add('user-comment-profile');
+    var img = document.createElement('img');
+    img.src = 'profile.jpg';
+    
+    profile.appendChild(img);
+    profileContainer.appendChild(profile);
+    newUserCommentContainer.appendChild(profileContainer);
+    newUserCommentContainer.appendChild(newCommentContent);
+    
+    // নতুন কমেন্ট কন্টেন্ট কন্টেনার যুক্ত করা
+    var commentDisplayContainer = document.querySelector('.comment-display-container');
+    commentDisplayContainer.appendChild(newUserCommentContainer);
+    
+    // comment-display-container এর ডিসপ্লে প্রপার্টি পরিবর্তন করা
+    commentDisplayContainer.style.display = "block";
+    
+    // কমেন্ট সংখ্যা আপডেট করা
+    var commentsLength = document.querySelectorAll('.user-comment-container').length;
+    document.querySelector('.comment-and-share p:first-child').textContent = commentsLength + " Comments";
+    
+    // ইনপুট এলিমেন্টের মান মুছে ফেলা
+    document.querySelector('.comment-input textarea').value = "";
+});
