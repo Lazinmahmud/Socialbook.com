@@ -31,6 +31,7 @@ body {
   --gray-border-color: #8B8B8B;
   --mobail-screen-body-color: #000;
   --dark-border-color: #808080;
+  --app-page-color: #000;
 }
 :root{
   --bg-color: #fff;
@@ -47,6 +48,7 @@ body {
   --mobail-screen-body-color: #ccc;
   --dark-border-color: #ccc;
   --off-white-color-two: #DADADA;
+  --app-page-color: #fff;
 }
 ::-webkit-scrollbar {
   width: 0; /* স্ক্রল বার গোপন করা */
@@ -1060,10 +1062,24 @@ input[type="radio"] {
 .comment-display-container{
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   width: 100%;
-  display: none;
+}
+.view-all-cment-container{
+  margin-top: 15px;
+  width: 100%;
+  padding-left: 1rem;
+}
+.viewAllComment{
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  color: var(--gray-text-color);
+}
+.viewAllComment:active{
+  background: var(--off-white-color);
 }
 .user-comment-container{
   width: 100%;
@@ -1162,10 +1178,6 @@ input[type="radio"] {
   padding: 1rem;
   border-radius: 8px;
   width: 100%;
-}
-.activity-btn-like p{
-  
-  font-size: 1.3rem;
 }
 .like-text{
   margin-left: -3px;
@@ -1839,9 +1851,9 @@ input[type="radio"] {
   width: 100%;
   padding: 1rem;
   font-size: 1.1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   outline: none;
-  background: #efefed;
+  background: #fff;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   border: 0;
 }
@@ -1851,9 +1863,9 @@ input[type="radio"] {
   padding: 1rem;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   font-size: 1.1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   outline: none;
-  background: #efefed;
+  background: #fff;
   border: 0;
 }
 .password{
@@ -1862,9 +1874,9 @@ input[type="radio"] {
   padding: 1rem;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   font-size: 1.1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   outline: none;
-  background: #efefed;
+  background: #fff;
   border: 0;
 }
 .btn-box{
@@ -1997,7 +2009,7 @@ input[type="radio"] {
 }
 .natification-page{
   position: fixed;
-  top: 6rem;
+  top: 5.9rem;
   height: 100%;
   width: 100%;
   background: var(--bg-color);
@@ -2020,6 +2032,7 @@ input[type="radio"] {
 }
 .notification-content p{
   font-size: 0.9rem;
+  color: var(--text-color);
 }
 .notification-profile{
   width: 70px;
@@ -2036,28 +2049,138 @@ input[type="radio"] {
   color: var(--gray-text-color);
   font-size: 14px;
 }
-.sidebar-profile-box{
-  margin-top: 6rem;
+.app-menu-page{
+  background: var(--app-page-color);
   width: 100%;
-  padding: 5px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: none;
+}
+.menu-page-nav{
+  width: 100%;
+  height: 3.5rem;
   background: var(--bg-color);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-radius: 7px;
+  padding-left: 0.8rem;
 }
-.sidebar-profile-box img{
-  width: 45px;
-  height: 45px;
+.menuBack{
+  border-radius: 5px;
+  padding: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.menuBack i{
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+.menuBack:active{
+  background: var(--off-white-color);
+}
+.menu-page-nav h4{
+  margin-left: 10px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+.menu-page-profile-container{
+  margin-top: 2rem;
+  margin-left: 5%;
+  width: 90%;
+  background: var(--bg-color);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+.menu-page-profile-container:active{
+  background: var(--off-white-color);
+}
+.menu-page-profile{
+  width: 3rem;
+  height: 3rem;
+  background: var(--off-white-color);
+  border-radius: 50%;
+}
+.menu-page-profile img{
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
-.sidebar-profile-box h4{
-  font-size: 1rem;
+.menu-page-profile-name{
+  margin-left: 10px;
+  color: var(--text-color);
 }
-
-
-
+.menu-page-profile-name p{
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--gray-text-color);
+}
+.dark-btn-container{
+  margin-top: 2rem;
+  margin-left: 5%;
+  width: 90%;
+  background: var(--bg-color);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+.dark-btn-container:active{
+  background: var(--off-white-color);
+}
+.dark-png{
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--off-white-color);
+  border-radius: 50%;
+}
+.dark-png img{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.dark-btn-container h4{
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.dark-toggle-switch{
+  margin-left: auto;
+  width: 50px;
+  height: 25px;
+  border-radius: 2rem;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+.switch{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  transition: margin-left 0.3s ease;
+  display: inline-block;
+}
+.menu-lg{
+  margin-top: 4rem;
+  margin-left: 5%;
+  width: 90%;
+  color: #fff;
+  background: var(--main-color);
+  border: 0;
+  padding: 0.7rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+.menu-lg:active{
+  opacity: 0.60;
+}
 
 
 
@@ -2084,24 +2207,24 @@ body{
 }
 .loging-email{
   padding: 0.9rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .loging-email:focus{
   border: 1px solid var(--main-color);
 }
 .loging-password{
   padding: 0.9rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .loging-password:focus{
   border: 1px solid var(--main-color);
 }
 .btn-success{
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0.8rem;
 }
 .fg-pass{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 4px;
 }
 .wrong-massage-email{
@@ -2111,7 +2234,7 @@ body{
   font-size: 0.8rem;
 }
 .create-new-acc-btn{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 0.8rem;
 }
 .singup-container{
@@ -2130,10 +2253,10 @@ body{
   font-size: 0.9rem;
 }
 .createUser-btn{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .lg-back{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .wrongEmailmsg{
   font-size: 0.8rem;
@@ -2197,9 +2320,9 @@ nav{
   padding-right: 0rem;
 }
 .icon-container{
-  padding-left: 0rem;
-  padding-right: 0rem;
-  gap: 10px;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  gap: 7px;
 }
 .create-stroy{
   width: 6.5rem;
@@ -2263,8 +2386,8 @@ nav{
   display: none;
 }
 .profile-img img{
-  width: 3rem;
-  height: 3rem;
+  width: 2.9rem;
+  height: 2.9rem;
 }
 .input-container{
   width: 100%;
@@ -2319,10 +2442,11 @@ nav{
   background: var(--off-white-color);
   border-radius: 1rem;
   padding: 1rem;
+  width: 7rem;
 }
 .activity-btn-like p{
   font-size: 0.8rem;
-  font-weight: 450;
+  font-weight: normal;
   
 }
 .activity-btn-like img{
@@ -2391,6 +2515,9 @@ nav{
   align-items: center;
   justify-content: center;
 }
+.mobail-menu:active{
+  background: var(--active-color);
+}
 .mobail-search-box img{
   width: 1.4rem;
 }
@@ -2432,8 +2559,8 @@ nav{
   width: 65%;
 }
 .loading-profile-img{
-  height: 3rem;
-  width: 3rem;
+  height: 2.9rem;
+  width: 2.9rem;
 }
 .loading-bottom-line{
   margin-top: 12rem;
@@ -2463,8 +2590,8 @@ nav{
   font-size: 1.7rem;
 }
 .comment-profile{
-  width: 3rem;
-  height: 3rem;
+  width: 2.9rem;
+  height: 2.9rem;
 }
 .comment-container{
   gap: 10px;
@@ -2473,8 +2600,8 @@ nav{
   width: 3rem;
 }
 .user-comment-profile{
-  width: 3rem;
-  height: 3rem;
+  width: 2.9rem;
+  height: 2.9rem;
 }
 @keyframes pulse {
   0% {
@@ -2495,11 +2622,12 @@ nav{
   right: 8px; 
   background: #F90158;
   position: absolute;
-  border-radius: 10px;
-  padding: 2px;
+  border-radius: 20px;
+  padding: 3px;
   color: #fff;
   font-size: 0.7rem;
   border: 1px solid var(--bg-color);
+  font-weight: bold;
   display: none;
 }
 #newNotify{
@@ -2558,5 +2686,9 @@ nav{
 }
 .comment-content p{
   font-size: 0.9rem;
+}
+.activity-btn p{
+  font-weight: normal;
+  font-size: 0.8rem;
 }
 }
