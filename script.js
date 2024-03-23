@@ -519,6 +519,12 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".menu-home").style.display = "none"
  });
  
+ 
+ 
+ 
+ 
+ 
+ 
  document.querySelector(".theme-title i").addEventListener('click', function(){
    
    document.querySelector(".display-accessibility").style.display = "none"
@@ -667,6 +673,7 @@ window.addEventListener('load', function() {
 });
 
 // বাটন নিয়ে ক্লিক ইভেন্ট হ্যান্ডলার
+// বাটন নিয়ে ক্লিক ইভেন্ট হ্যান্ডলার
 document.querySelector('.comment-send-btn').addEventListener('click', function() {
     // ইনপুট এলিমেন্ট থেকে ইউজারের কমেন্ট টেক্সট নিতে
     var userComment = document.querySelector('.comment-input textarea').value;
@@ -695,7 +702,8 @@ document.querySelector('.comment-send-btn').addEventListener('click', function()
     
     // নতুন কমেন্ট কন্টেন্ট কন্টেনার যুক্ত করা
     var commentDisplayContainer = document.querySelector('.comment-display-container');
-    commentDisplayContainer.appendChild(newUserCommentContainer);
+    // প্রথমে এই নতুন কমেন্টকে সংখ্যার প্রথমে যোগ করে তারপরে সংখ্যার নতুন মানটি আপডেট করে
+    commentDisplayContainer.insertBefore(newUserCommentContainer, commentDisplayContainer.firstChild);
     
     // comment-display-container এর ডিসপ্লে প্রপার্টি পরিবর্তন করা
     commentDisplayContainer.style.display = "block";
@@ -704,6 +712,117 @@ document.querySelector('.comment-send-btn').addEventListener('click', function()
     var commentsLength = document.querySelectorAll('.user-comment-container').length;
     document.querySelector('.comment-and-share p:first-child').textContent = commentsLength + " Comments";
     
+    // <button class="viewAllComment">View all comments <i class='bx bx-chevron-down'></i></button> এর টেক্সট পরিবর্তন করা
+    var viewAllCommentsButton = document.querySelector('.viewAllComment');
+    viewAllCommentsButton.innerHTML = "Hide all comments <i class='bx bx-chevron-up'></i>";
+    
     // ইনপুট এলিমেন্টের মান মুছে ফেলা
     document.querySelector('.comment-input textarea').value = "";
+});
+
+
+//comment button click and comment input focus
+
+document.getElementById("commentBtn").addEventListener('click', function(){
+  
+  document.getElementById('commentInputFocus').focus();
+})
+
+
+// বাটনের এলিমেন্টকে সিলেক্ট করুন
+// বাটনের এলিমেন্টকে সিলেক্ট করুন
+var viewAllCommentsButton = document.querySelector('.viewAllComment');
+
+// বাটনের উপরে ক্লিক ইভেন্ট যোগ করুন
+viewAllCommentsButton.addEventListener('click', function() {
+    // comment-display-container এর ডিসপ্লে প্রপার্টি পরিবর্তন করুন
+    var commentDisplayContainer = document.querySelector('.comment-display-container');
+    if (commentDisplayContainer.style.display === "none" || commentDisplayContainer.style.display === "") {
+        commentDisplayContainer.style.display = "block";
+        viewAllCommentsButton.innerHTML = "Hide all comments <i class='bx bx-chevron-up'></i>";
+    } else {
+        commentDisplayContainer.style.display = "none";
+        viewAllCommentsButton.innerHTML = "View all comments <i class='bx bx-chevron-down'></i>";
+    }
+});
+
+
+
+
+
+// mobail screen dark mode apply
+
+const switchElement = document.querySelector('.dark-toggle-switch');
+const switchButton1 = switchElement.querySelector('.switch');
+
+let isSwitched1 = localStorage.getItem('isSwitched1') === 'true';
+
+switchButton1.style.marginLeft = isSwitched1 ? 'auto' : '0';
+document.body.classList.toggle('dark-theme', isSwitched1);
+document.querySelector('meta[name="theme-color"]').setAttribute('content', isSwitched1 ? '#000' : '#fff');
+
+switchElement.addEventListener('click', function toggleSwitch1() {
+  isSwitched1 = !isSwitched1;
+  localStorage.setItem('isSwitched1', isSwitched1);
+  switchButton1.style.marginLeft = isSwitched1 ? 'auto' : '0';
+  document.body.classList.toggle('dark-theme', isSwitched1);
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', isSwitched1 ? '#000' : '#fff');
+});
+
+const darkBtnContainer = document.querySelector('.dark-btn-container');
+const switchButton2 = darkBtnContainer.querySelector('.switch');
+
+let isSwitched2 = localStorage.getItem('isSwitched2') === 'true';
+
+switchButton2.style.marginLeft = isSwitched2 ? 'auto' : '0';
+document.body.classList.toggle('dark-theme', isSwitched2);
+document.querySelector('meta[name="theme-color"]').setAttribute('content', isSwitched2 ? '#212121' : '#fff');
+
+// Inside the event listener where the dark theme is applied
+darkBtnContainer.addEventListener('click', function toggleSwitch2() {
+  // Set a timeout for 2 seconds
+  setTimeout(function() {
+    isSwitched2 = !isSwitched2;
+    localStorage.setItem('isSwitched2', isSwitched2);
+    switchButton2.style.marginLeft = isSwitched2 ? 'auto' : '0';
+    document.body.classList.toggle('dark-theme', isSwitched2);
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', isSwitched2 ? '#212121' : '#fff');
+    
+    // Change the logo image based on the dark theme status
+    const logoImage = document.querySelector('.nav-logo-media-query img');
+    const newLogoPath = isSwitched2 ? 'logo-white.png' : 'logo-blue.png';
+    logoImage.src = newLogoPath;
+    
+    // Save the new logo path to local storage
+    localStorage.setItem('logoPath', newLogoPath);
+    
+    document.querySelector('.app-menu-page').style.display = 'none';
+    document.querySelector('nav').style.display = 'block';
+  }, 0700); // 2000 milliseconds = 2 seconds
+});
+
+// When the page loads, check if there's a saved logo path in local storage
+window.addEventListener('load', function() {
+  const savedLogoPath = localStorage.getItem('logoPath');
+  if (savedLogoPath) {
+    const logoImage = document.querySelector('.nav-logo-media-query img');
+    logoImage.src = savedLogoPath;
+  }
+});
+
+
+
+
+document.querySelector(".mobail-menu").addEventListener('click', function(){
+  setTimeout(function(){
+    document.querySelector(".app-menu-page").style.display = "block";
+    document.querySelector("nav").style.display = "none";
+  }, 0300); // ১ সেকেন্ডের মধ্যে কাজ করবে
+});
+
+document.querySelector(".menuBack").addEventListener('click', function(){
+  setTimeout(function(){
+    document.querySelector(".app-menu-page").style.display = "none"
+  document.querySelector("nav").style.display = "block"
+  }, 0300); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
