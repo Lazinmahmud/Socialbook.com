@@ -187,7 +187,14 @@ document.getElementById("login").addEventListener("click", function() {
         // Save user login info in localStorage
         localStorage.setItem('userLoggedIn', true);
         localStorage.setItem('userEmail', user.email);
+
+        // Save login time in localStorage
+        localStorage.setItem('loginTime', loginTime.getTime());
         
+        // Display login time
+        var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Asia/Dhaka' };
+        var loginTimeString = loginTime.toLocaleString('en-US', options);
+
         // Save login time in database
         var loginDateTime = `${loginTime.getDate()} ${getMonthName(loginTime.getMonth())}, ${loginTime.getFullYear()}, ${formatAMPM(loginTime)}`;
 
