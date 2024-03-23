@@ -169,7 +169,7 @@
          <img src="arrow.png">
        </div>
      </div>
-     <div id="logout" class="menu-item">
+     <div class="logout menu-item">
        <div class="icon-img">
          <img src="logout.png">
        </div>
@@ -503,6 +503,7 @@
          <p>10 shares</p>
        </div>
      </div>
+     
      <div class="main-activity-icon-container">
        <div class="icon-container">
          <div class="activity-btn-like" onclick="toggleLike()">
@@ -511,7 +512,7 @@
          <p class="like-count">0</p>
          <p class="like-text">Like</p>
          </div>
-         <div class="activity-btn">
+         <div id="commentBtn" class="activity-btn">
            <img src="comment.png">
            <p>Comment</p>
          </div>
@@ -522,7 +523,9 @@
        </div>
      </div>
      
-     
+     <div class="view-all-cment-container">
+       <button class="viewAllComment">View all comments <i class='bx bx-chevron-down'></i></button>
+     </div>
      <div class="comment-display-container">
       <!-- <div class="user-comment-container">
          <div class="user-comment-profile-container">
@@ -545,7 +548,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <textarea id="commentInputFocus" class="1" rows="1" placeholder="Write a public comment..."></textarea>
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -583,7 +586,7 @@
          <div class="activity-btn-like" onclick="toggleLike()">
          <img id="likeBlue" src="like-red.png">
           <img id="likeGray" src="like.png">
-         <p class="like-count">999</p>
+         <p class="like-count">9979</p>
          <p class="like-text">Like</p>
          </div>
          <div class="activity-btn">
@@ -840,6 +843,37 @@
      </div>
    </div>
    
+   
+   <div class="app-menu-page">
+     <div class="menu-page-nav">
+       <div class="menuBack">
+         <i class='bx bx-arrow-back'></i>
+       </div>
+       <h4>Menu</h4>
+     </div>
+     <div class="menu-page-profile-container">
+       <div class="menu-page-profile">
+         <img src="profile.jpg">
+       </div>
+       <div class="menu-page-profile-name">
+         <h4>Lazim Mahmud</h4>
+         <p>View your profile</p>
+       </div>
+     </div>
+     <div class="dark-btn-container">
+       <div class="dark-png">
+         <img src="display.png">
+       </div>
+       <h4>Dark Mode</h4>
+       <div class="dark-toggle-switch">
+         <span class="switch"></span>
+       </div>
+     </div>
+     <div class="menu-page-lg-button">
+       <button class="logout menu-lg">Log Out</button>
+     </div>
+   </div>
+   
  
  <div class="create-story-page-opachity">
    <div id="createStorypage" class="create-story-page">
@@ -870,13 +904,15 @@
     
     
     <script>
-      document.getElementById("logout").addEventListener("click", function() {
-    // Remove user login info from localStorage
-    localStorage.removeItem('userLoggedIn');
-    localStorage.removeItem('userEmail');
-    
-    // Redirect to index.html page
-    window.location.href = "index.html";
+      document.querySelectorAll('.logout').forEach(function(element) {
+    element.addEventListener("click", function() {
+        // Remove user login info from localStorage
+        localStorage.removeItem('userLoggedIn');
+        localStorage.removeItem('userEmail');
+        
+        // Redirect to index.html page
+        window.location.href = "index.html";
+    });
 });
 
 
