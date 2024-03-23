@@ -640,7 +640,7 @@ setTimeout(function() {
 document.addEventListener("DOMContentLoaded", function() {
     var loginTime = localStorage.getItem('loginTime');
     if (loginTime) {
-        var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Asia/Dhaka' };
+        var options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Asia/Dhaka' };
         var loginDate = new Date(parseInt(loginTime));
         var loginTimeString = loginDate.toLocaleString('en-US', options);
         document.getElementById('loging-time').innerText = loginTimeString;
