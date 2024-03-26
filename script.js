@@ -156,7 +156,7 @@ document.getElementById("storyPageClose").addEventListener("click", function() {
 
 
 
-
+ 
 
 // share button click and display story
 document.getElementById("shareBtn").addEventListener("click", function() {
@@ -164,10 +164,14 @@ document.getElementById("shareBtn").addEventListener("click", function() {
     storyDiv.className = "user-story";
 
     // Random background color
-    var colors = ["#1876f2", "#F4426A", "#EA002E", "#880E4F"];
-    var randomIndex = Math.floor(Math.random() * colors.length);
-    var randomColor = colors[randomIndex];
-    storyDiv.style.backgroundColor = randomColor;
+    var gradients = [
+        "linear-gradient(#FF0D90, #FF910E)",
+        "linear-gradient(#013BFF, #FF0194)",
+        "linear-gradient(#07CC81, #0BAAEA)"
+    ];
+    var randomIndex = Math.floor(Math.random() * gradients.length);
+    var randomGradient = gradients[randomIndex];
+    storyDiv.style.background = randomGradient;
 
     var profileDiv = document.createElement("div");
     profileDiv.className = "story-profile";
@@ -193,7 +197,7 @@ document.getElementById("shareBtn").addEventListener("click", function() {
     }
 
     // Random text color: black or white
-    var randomTextColor = Math.random() > 0.5 ? "#FFF" : "#FFF";
+    var randomTextColor = Math.random() > 0.5 ? "#FFF" : "#fff";
     textElement.style.color = randomTextColor;
 
     storyTextContainer.appendChild(textElement);
@@ -209,8 +213,9 @@ document.getElementById("shareBtn").addEventListener("click", function() {
         function updateProgress(progress) {
             document.getElementById("progress").style.width = progress + "%";
             if (progress === 100) {
-                // Create user-story container after progress completion
-                document.querySelector(".story-scroll-container").appendChild(storyDiv);
+                // Insert new story div at the beginning of all-user-story-container
+                var allUserStoryContainer = document.querySelector('.all-user-story-container');
+                allUserStoryContainer.insertBefore(storyDiv, allUserStoryContainer.firstChild);
                 document.querySelector(".upload-story-container").style.display = "none";
             } else {
                 document.querySelector(".upload-story-container").style.display = "block";
@@ -337,6 +342,7 @@ var opacityBlack = document.querySelector('.opacity-black');
 inputContainer.addEventListener('click', function(){
   opacityBlack.style.display = 'flex'
   document.querySelector(".feed-post-create-container").style.display = "block"
+  document.getElementById('postInpFocus').focus();
 });
 
 
@@ -356,6 +362,7 @@ document.querySelector(".close-btn-blog-post").addEventListener('click', functio
 document.getElementById("blogPost").addEventListener("click",function(){
   opacityBlack.style.display = 'flex';
   document.querySelector(".blog-post-create-container").style.display = "block"
+  document.getElementById('user-input').focus();
 });
 
 
@@ -826,3 +833,139 @@ document.querySelector(".menuBack").addEventListener('click', function(){
   document.querySelector("nav").style.display = "block"
   }, 0300); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
+
+
+
+// internet connection on off popup
+
+
+window.addEventListener('load', () => {
+    let isFirstLogin = true; // প্রথম লগইন হিসাবে চিহ্নিত করা
+
+    const noInternetPopup = document.querySelector('.no-internet-popup');
+    const internetOnPopup = document.querySelector('.internet-on-popup');
+    const myActiveStatus = document.getElementById('myActiveStatus');
+
+    function updateOnlineStatus() {
+        if (!isLoggedIn()) {
+            return; // ব্যবহারকারী লগইন না থাকলে কোন কাজ করা হবে না
+        }
+
+        if (navigator.onLine) {
+            noInternetPopup.style.bottom = '-5rem';
+            if (!isFirstLogin) {
+                internetOnPopup.style.bottom = '2.5rem';
+                setTimeout(() => {
+                    internetOnPopup.style.bottom = '-5rem';
+                }, 8000); // 3 সেকেন্ডের মধ্যে বন্ধ করা
+            }
+            myActiveStatus.style.backgroundColor = '#01A625'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+        } else {
+            noInternetPopup.style.bottom = '2rem';
+            internetOnPopup.style.bottom = '-5rem';
+            myActiveStatus.style.backgroundColor = '#ccc'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+        }
+        isFirstLogin = false; // প্রথম লগইন হিসাবে চিহ্নিত করা পরে আপডেট করা
+    }
+
+    function isLoggedIn() {
+        // ব্যবহারকারী লগইন আছে কিনা তা পরীক্ষা করার লজিক এখানে লিখুন
+        // উদাহরণস্বরূপ, আপনি সেশন বা টোকেন উপলব্ধ কিনা চেক করতে পারেন
+        return true; // ব্যবহারকারী লগইন আছে এবং সত্য হলে ট্রু রিটার্ন করুন, অন্যথায় ফলস রিটার্ন করুন
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    updateOnlineStatus();
+});
+
+
+document.getElementById("interNetPopupCloseOfline").addEventListener('click', function(){
+  document.querySelector('.no-internet-popup').style.bottom ='-5rem'
+});
+
+document.getElementById("onInternetPopupClose").addEventListener('click', function(){
+  document.querySelector('.internet-on-popup').style.bottom ='-5rem'
+});
+
+
+
+
+
+
+
+
+//socialbook ai chat
+
+const messageBar = document.querySelector(".ai-chat-bottom input");
+const sendBtn = document.querySelector(".chatMassageSend");
+const messageBox = document.querySelector(".message-box");
+
+let API_URL = "https://api.openai.com/v1/chat/completions";
+let API_KEY = "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";
+
+sendBtn.onclick = function () {
+  if (messageBar.value.length > 0) {
+    const UserTypedMessage = messageBar.value;
+    messageBar.value = "";
+
+    let message =
+      `<div class="chat userMassage">
+      <span>
+        ${UserTypedMessage}
+      </span>
+      <img src="profile.jpg">
+    </div>`;
+
+    let response =
+      `<div class="chat response">
+      <img src="logo.png">
+      <span class= "aiResponseIndicator">...</span>
+    </div>`;
+
+    messageBox.insertAdjacentHTML("beforeend", message);
+    
+    // Scroll to bottom after sending user message
+    messageBox.scrollTop = messageBox.scrollHeight;
+
+    setTimeout(() => {
+      messageBox.insertAdjacentHTML("beforeend", response);
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          "model": "gpt-3.5-turbo",
+          "messages": [{ "role": "user", "content": UserTypedMessage }]
+        })
+      };
+
+      fetch(API_URL, requestOptions)
+        .then(res => res.json())
+        .then(data => {
+          const ChatBotResponse = document.querySelector(".response .aiResponseIndicator");
+          ChatBotResponse.innerHTML = '';
+          let index = 0;
+          const typeWriter = () => {
+            if (index < data.choices[0].message.content.length) {
+              ChatBotResponse.innerHTML += data.choices[0].message.content.charAt(index);
+              index++;
+              setTimeout(typeWriter, 10);
+            }
+          };
+          typeWriter();
+          ChatBotResponse.classList.remove("aiResponseIndicator");
+          
+          // Scroll to bottom after receiving bot response
+          messageBox.scrollTop = messageBox.scrollHeight;
+        })
+        .catch((error) => {
+          ChatBotResponse.innerHTML = "Oops! An error occurred. Please try again";
+        });
+    }, 100);
+  }
+};
