@@ -176,19 +176,15 @@
 	  //----- End
 
 // লগইন কোড অনুসারে রিডাইরেক্ট করা
-document.getElementById("login").addEventListener("click", function() {
-    // লগইন বাটন ক্লিক করার 1 সেকেন্ড পর "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
-    setTimeout(() => {
-        document.querySelector('.please-wait-container').style.display = 'flex';
-    }, 1000);
+document.getElementById("login").addEventListener("click", function(event) {
+    event.preventDefault(); // ডিফল্ট ইভেন্ট প্রিভেন্ট করতে হবে
 
     var email = document.getElementById("login_email").value;
     var password = document.getElementById("login_password").value;
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // প্রক্রিয়া শুরু হলে "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
-        document.querySelector('.please-wait-container').style.display = 'flex';
+        document.querySelector('.please-wait-container').style.display = 'flex'; // লগইন সফল হলে ডিসপ্লে পরিবর্তন করুন
 
         const user = userCredential.user;
         console.log(user);
@@ -237,8 +233,7 @@ document.getElementById("login").addEventListener("click", function() {
         }
     })
     .finally(() => {
-        // লগইন প্রক্রিয়া শেষ হলে "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
-        document.querySelector('.please-wait-container').style.display = 'flex';
+        document.querySelector('.please-wait-container').style.display = 'flex'; // লগইন প্রস্তুতি শেষ হলে ডিসপ্লে পরিবর্তন করুন
     });
 });
 
