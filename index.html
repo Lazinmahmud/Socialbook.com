@@ -73,6 +73,12 @@
     
   </div>
   
+  <div class="please-wait-container">
+    <div class="please-wait-box">
+      <div class="loader"></div>
+      <p>Please wait...</p>
+    </div>
+  </div>
   
   
   	<script type="module">
@@ -171,38 +177,38 @@
 
 // লগইন কোড অনুসারে রিডাইরেক্ট করা
 document.getElementById("login").addEventListener("click", function() {
+    // লগইন বাটন ক্লিক করার 1 সেকেন্ড পর "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
+    setTimeout(() => {
+        document.querySelector('.please-wait-container').style.display = 'flex';
+    }, 1000);
+
     var email = document.getElementById("login_email").value;
     var password = document.getElementById("login_password").value;
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // Signed in 
+        // প্রক্রিয়া শুরু হলে "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
+        document.querySelector('.please-wait-container').style.display = 'flex';
+
         const user = userCredential.user;
         console.log(user);
         alert(user.email + " Login successfully!!!");
 
-        // Get current date and time
         var loginTime = new Date();
 
-        // Save user login info in localStorage
         localStorage.setItem('userLoggedIn', true);
         localStorage.setItem('userEmail', user.email);
-
-        // Save login time in localStorage
         localStorage.setItem('loginTime', loginTime.getTime());
-        
-        // Display login time
+
         var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'Asia/Dhaka' };
         var loginTimeString = loginTime.toLocaleString('en-US', options);
 
-        // Save login time in database
         var loginDateTime = `${loginTime.getDate()} ${getMonthName(loginTime.getMonth())}, ${loginTime.getFullYear()}, ${formatAMPM(loginTime)}`;
 
         set(ref(db, 'User List/' + user.uid + '/Last_Login_Date'), loginDateTime)
         .then(() => {
             console.log("Login time stored successfully!");
-            
-            // Redirect to home page
+
             window.location.href = "home.html";
         })
         .catch((error) => {
@@ -211,7 +217,6 @@ document.getElementById("login").addEventListener("click", function() {
 
         document.querySelector('.wrong-massage-email').textContent = '';
         document.querySelector('.wrong-massage-pass').textContent = '';
-        // ...
     })
     .catch((error) => {
         const errorMessage = error.message;
@@ -219,17 +224,21 @@ document.getElementById("login").addEventListener("click", function() {
         console.log(errorMessage);
         if (errorCode === 'auth/invalid-email') {
             document.querySelector('.wrong-massage-email').textContent = errorMessage;
-            document.querySelector('.wrong-massage-pass').textContent = ''; // পাসওয়ার্ড ত্রুটির ম্যাসেজ মুছে দেওয়া
+            document.querySelector('.wrong-massage-pass').textContent = '';
             setTimeout(() => {
                 document.querySelector('.wrong-massage-email').textContent = '';
-            }, 4000); // সেট টাইমআউট ৩ সেকেন্ড
+            }, 4000);
         } else {
             document.querySelector('.wrong-massage-pass').textContent = errorMessage;
-            document.querySelector('.wrong-massage-email').textContent = ''; // ইমেল ত্রুটির ম্যাসেজ মুছে দেওয়া
+            document.querySelector('.wrong-massage-email').textContent = '';
             setTimeout(() => {
                 document.querySelector('.wrong-massage-pass').textContent = '';
-            }, 4000); // সেট টাইমআউট ৩ সেকেন্ড
+            }, 4000);
         }
+    })
+    .finally(() => {
+        // লগইন প্রক্রিয়া শেষ হলে "please-wait-container" ক্লাসের ডিসপ্লে পরিবর্তন করুন
+        document.querySelector('.please-wait-container').style.display = 'flex';
     });
 });
 
