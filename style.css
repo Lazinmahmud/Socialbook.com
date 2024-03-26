@@ -2399,6 +2399,7 @@ input[type="radio"] {
   position: fixed;
   bottom: 3%;
   right: 5%;
+  display: none;
 }
 .ai-chat-page-header{
   width: 100%;
