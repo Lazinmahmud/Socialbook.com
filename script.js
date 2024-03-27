@@ -1,4 +1,3 @@
-
 document.getElementById("friendIcon").addEventListener("click", function() {
   // Your code here
   document.getElementById("homeGray").style.display  = "block";
@@ -904,69 +903,103 @@ const sendBtn = document.querySelector(".chatMassageSend");
 const messageBox = document.querySelector(".message-box");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
-let API_KEY = "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";
+let API_KEY = "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";
 
-sendBtn.onclick = function () {
+sendBtn.onclick = async function () {
   if (messageBar.value.length > 0) {
     const UserTypedMessage = messageBar.value;
     messageBar.value = "";
 
-    let message =
+    let userMessage =
       `<div class="chat userMassage">
-      <span>
-        ${UserTypedMessage}
-      </span>
-      <img src="profile.jpg">
-    </div>`;
+        <span>${UserTypedMessage}</span>
+        <img src="profile.jpg">
+      </div>`;
 
-    let response =
+    let responseIndicator =
       `<div class="chat response">
       <img src="logo.png">
-      <span class= "aiResponseIndicator">...</span>
+      <span class="chatIndecator"</span>
+      <div class="typing-dots">
+        <div class="dots" style="--delay: 200ms"></div>
+        <div class="dots" style="--delay: 300ms"></div>
+        <div class="dots" style="--delay: 400ms"></div>
+      </div>
     </div>`;
 
-    messageBox.insertAdjacentHTML("beforeend", message);
-    
+    messageBox.insertAdjacentHTML("beforeend", userMessage);
+    messageBox.insertAdjacentHTML("beforeend", responseIndicator);
+
     // Scroll to bottom after sending user message
     messageBox.scrollTop = messageBox.scrollHeight;
 
-    setTimeout(() => {
-      messageBox.insertAdjacentHTML("beforeend", response);
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        "model": "gpt-3.5-turbo",
+        "messages": [{ "role": "user", "content": UserTypedMessage }]
+      })
+    };
 
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-          "model": "gpt-3.5-turbo",
-          "messages": [{ "role": "user", "content": UserTypedMessage }]
-        })
+    try {
+      const res = await fetch(API_URL, requestOptions);
+      const data = await res.json();
+      
+      const ChatBotResponse = document.querySelector(".response .typing-dots");
+      ChatBotResponse.innerHTML = '';
+      let index = 0;
+      const typeWriter = () => {
+        if (index < data.choices[0].message.content.length) {
+          ChatBotResponse.innerHTML += data.choices[0].message.content.charAt(index);
+          index++;
+          setTimeout(typeWriter, 10);
+        }
       };
-
-      fetch(API_URL, requestOptions)
-        .then(res => res.json())
-        .then(data => {
-          const ChatBotResponse = document.querySelector(".response .aiResponseIndicator");
-          ChatBotResponse.innerHTML = '';
-          let index = 0;
-          const typeWriter = () => {
-            if (index < data.choices[0].message.content.length) {
-              ChatBotResponse.innerHTML += data.choices[0].message.content.charAt(index);
-              index++;
-              setTimeout(typeWriter, 10);
-            }
-          };
-          typeWriter();
-          ChatBotResponse.classList.remove("aiResponseIndicator");
-          
-          // Scroll to bottom after receiving bot response
-          messageBox.scrollTop = messageBox.scrollHeight;
-        })
-        .catch((error) => {
-          ChatBotResponse.innerHTML = "Oops! An error occurred. Please try again";
-        });
-    }, 100);
+      typeWriter();
+      ChatBotResponse.classList.remove("typing-dots");
+      
+      // Scroll to bottom after receiving bot response
+      messageBox.scrollTop = messageBox.scrollHeight;
+    } catch (error) {
+      const ChatBotResponse = document.querySelector(".response .typing-dots");
+      ChatBotResponse.innerHTML = "Oops! An error occurred. Please try again";
+    }
   }
 };
+
+
+
+// ai chat click 
+
+var AiChat = document.getElementById('AiChat');
+var aiChatPage = document.querySelector('.ai-chat-page');
+
+AiChat.addEventListener('click', function(){
+  aiChatPage.style.display = 'block'
+  document.querySelector('.ai-chat-bottom input').focus();
+  document.getElementById('fristAiMessage').style.display = 'flex'
+});
+
+//ai chat close 
+
+var aiChatClose = document.getElementById('ai-chat-close');
+
+aiChatClose.addEventListener('click', function(){
+  aiChatPage.style.display = 'none'
+  messageBox.innerHTML = ''; // সমস্ত চ্যাট মুছে ফেলা
+  
+});
+
+
+// chat minimize click 
+document.querySelector('.chat-minimize').addEventListener('click', function(){
+  aiChatPage.style.display = 'none'
+});
+
+
+
+
