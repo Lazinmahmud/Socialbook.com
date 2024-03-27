@@ -274,7 +274,7 @@
          </div>
          <h4>Messages</h4>
        </div>
-       <div class="sidebar-icon-box">
+       <div id="AiChat" class="sidebar-icon-box">
          <div class="sidebar-icon">
            <img src="ai.png">
          </div>
@@ -1216,21 +1216,33 @@
        <h4>Socialbook AI</h4>
        <p>Always active </p>
      </div>
-     <div class="ai-chat-close">
+     <div class="chat-minimize">
+       <i class='bx bx-minus' ></i>
+     </div>
+     <div id="ai-chat-close" class="ai-chat-close">
        <i class='bx bx-x'></i>
      </div>
    </div>
    <div class="message-box">
-      <div class="chat response">
+      <div id="fristAiMessage" class="chat response">
         <img src="logo.png">
         <span>Hello there! <br> 
           How can I help you today.
         </span>
       </div>
-      <!---<div class="chat response">
-        <span class= "aiResponseIndecator">...</span>
+      <!--<div class="chat response">
+        <span class= "aiResponseIndecator"></span>
        <img src="profile.jpg">
-        </div>--->
+        </div>-->
+       <!-- <div class="chat response">
+      <img src="logo.png">
+      <span class= "aiResponseIndecator">...</span>
+      <div class="typing-dots">
+        <div class="dots" style="--delay: 200ms"></div>
+        <div class="dots" style="--delay: 300ms"></div>
+        <div class="dots" style="--delay: 400ms"></div>
+      </div>
+    </div>--->
     </div>
    <div class="ai-chat-bottom">
      <input type="text" placeholder="Message">
