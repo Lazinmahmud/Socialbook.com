@@ -184,8 +184,6 @@ document.getElementById("login").addEventListener("click", function(event) {
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        document.querySelector('.please-wait-container').style.display = 'flex'; // লগইন সফল হলে ডিসপ্লে পরিবর্তন করুন
-
         const user = userCredential.user;
         console.log(user);
         alert(user.email + " Login successfully!!!");
@@ -213,6 +211,8 @@ document.getElementById("login").addEventListener("click", function(event) {
 
         document.querySelector('.wrong-massage-email').textContent = '';
         document.querySelector('.wrong-massage-pass').textContent = '';
+
+        document.querySelector('.please-wait-container').style.display = 'flex'; // লগইন সফল হলে ডিসপ্লে পরিবর্তন করুন
     })
     .catch((error) => {
         const errorMessage = error.message;
@@ -231,9 +231,6 @@ document.getElementById("login").addEventListener("click", function(event) {
                 document.querySelector('.wrong-massage-pass').textContent = '';
             }, 4000);
         }
-    })
-    .finally(() => {
-        document.querySelector('.please-wait-container').style.display = 'flex'; // লগইন প্রস্তুতি শেষ হলে ডিসপ্লে পরিবর্তন করুন
     });
 });
 
