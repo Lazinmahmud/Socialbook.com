@@ -2432,8 +2432,20 @@ input[type="radio"] {
 .Ai-title h4{
   color: var(--text-color);
 }
-.ai-chat-close{
+.chat-minimize{
   margin-left: auto;
+  border-radius: 7px;
+  padding: 1px;
+}
+.chat-minimize:active{
+  background: var(--off-white-color);
+}
+.chat-minimize i{
+  color: var(--main-color);
+  font-size: 2.2rem;
+}
+.ai-chat-close{
+  margin-left: 10px;
   border-radius: 7px;
   padding: 1px;
 }
@@ -2464,6 +2476,7 @@ input[type="radio"] {
   padding: 10px;
   width: 100%;
   color: var(--text-color);
+  font-size: 1.1rem;
 }
 .chatMassageSend{
   border-radius: 7px;
@@ -2482,12 +2495,14 @@ input[type="radio"] {
 }
 .chat{
   display: flex;
-  align-items: center;
-  gap: 15px;
+  gap: 10px;
   padding: 10px;
   color: var(--text-color);
   font-size: 15px;
   font-weight: 400;
+}
+#fristAiMessage{
+  display: none;
 }
 .chat span{
   background: var(--main-color);
@@ -2511,6 +2526,29 @@ input[type="radio"] {
 }
 .userMassage span{
   margin-left: auto;
+}
+.typing-dots{
+  padding: 3px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background: var(--off-white-color);
+  gap: 4px;
+}
+.dots{
+  background: #808080;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  animation: animateDots 1.3s var(--delay) ease-in-out infinite;
+}
+@keyframes animateDots{
+  0%,44%{
+    transform: translateY(0px);
+  }
+  28%{
+    transform: translateY(-9px);
+  }
 }
 .please-wait-container{
   width: 100%;
@@ -3088,5 +3126,8 @@ nav{
 }
 .please-wait-box p{
   font-size: 0.9rem;
+}
+.ai-chat-page{
+  display: none;
 }
 }
