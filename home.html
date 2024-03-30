@@ -1207,6 +1207,15 @@
  
  
  
+ <div class="messenger-chat-page">
+   
+   
+ </div>
+ 
+ 
+ 
+ 
+ 
  <div class="ai-chat-page">
    <div class="ai-chat-page-header">
      <div class="ai-chat-profile">
@@ -1230,19 +1239,19 @@
           How can I help you today.
         </span>
       </div>
-      <!--<div class="chat response">
-        <span class= "aiResponseIndecator"></span>
-       <img src="profile.jpg">
-        </div>-->
-       <!-- <div class="chat response">
+   <!--   <div id="userChat" class="chat userMassage">
+        <span>${UserTypedMessage}</span>
+        <img src="profile.jpg">
+      </div>
+       <div id="chat-response" class="chat response">
       <img src="logo.png">
-      <span class= "aiResponseIndecator">...</span>
+      <span class="chatIndecator"</span>
       <div class="typing-dots">
         <div class="dots" style="--delay: 200ms"></div>
         <div class="dots" style="--delay: 300ms"></div>
         <div class="dots" style="--delay: 400ms"></div>
       </div>
-    </div>--->
+    </dHow-->
     </div>
    <div class="ai-chat-bottom">
      <input type="text" placeholder="Message">
@@ -1251,6 +1260,11 @@
      </div>
    </div>
  </div>
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -1286,6 +1300,12 @@
    
    <div id="profile-page">
    
+   <div class="friend-page-navbar">
+     <div class="profile-back">
+         <i class='bx bx-arrow-back'></i>
+       </div>
+       <h4>Lazim Mahmud</h4>
+   </div>
    
      <div class="cover-photo-container">
        <div id="coverCameraClick" class="cover-upload-box">
@@ -1299,22 +1319,32 @@
        </div>
        <img class="selectedImg" src="profile.jpg">
      </div>
-     <div class="profile-name-box">
-       <h4>Lazim Mahmud</h4>
+     <div class="profile-name">
+       <div class="verified">
+           <h4>Lazim Mahmud</h4>
+           <img src="badge.png">
+         </div>
      </div>
      <div class="bio-container">
-       <p>Hello gay's it's me a boy lazim mahmud upol.This is official facebook account of Lazim Mahmud Upol </p>
+       <p>Bringing the world colser together </p>
      </div>
-     <div class="profile-btn-container">
-     <div class="create-story-btn">
-       <button id="profilePageCreateStory" class="create-story">Create Story</button>
+     <div class="post-and-follower-container">
+       <div class="post-and-follower-counter-box">
+         <h4>2</h4>
+         <p>posts</p>
+       </div>
+       <div class="post-and-follower-counter-box">
+         <h4>1M</h4>
+         <p>followers</p>
+       </div>
+       <div class="post-and-follower-counter-box">
+         <h4>30</h4>
+         <p>following</p>
+       </div>
      </div>
-     <div class="edit-profile-btn">
-       <button class="edit-profile">Edit Profile</button>
-       <button class="profile-menu-btn">
-         <i class='bx bx-dots-horizontal-rounded'></i>
-       </button>
-     </div>
+     <div class="profile-page-btn-container">
+       <button class="edit-profile">Edit profile</button>
+       <button class="add-story">Add story</button>
      </div>
      
    </div>
@@ -1350,10 +1380,17 @@
          <img src="profile.jpg">
        </div>
        <div class="menu-page-profile-name">
-         <h4>Lazim Mahmud</h4>
+         <div class="verified">
+           <h4>Lazim Mahmud</h4>
+           <img src="badge.png">
+         </div>
          <p>View your profile</p>
        </div>
      </div>
+     
+    
+     
+     
      <div class="dark-btn-container">
        <div class="dark-png">
          <img src="display.png">
@@ -1363,6 +1400,75 @@
          <span class="switch"></span>
        </div>
      </div>
+     
+     <div class="setting-and-privacy-container">
+       <div class="dark-png">
+         <img src="setting.png">
+       </div>
+       <h4>Settings & privacy</h4>
+     </div>
+     
+     <br>
+     
+     
+     <div class="menu-page-item-container">
+       <div class="menu-page-item">
+         <img src="feed.png">
+         <h4>Feeds</h4>
+       </div>
+       <div class="menu-page-item">
+         <img src="video-sidebar.png">
+         <h4>Videos</h4>
+       </div>
+     </div>
+     <div class="menu-page-item-container">
+       <div class="menu-page-item">
+         <img src="badge3d.png">
+         <h4>Verified badge</h4>
+       </div>
+       <div class="menu-page-item">
+         <img src="massage-sidebar.png">
+         <h4>Messages</h4>
+       </div>
+     </div>
+     <div class="menu-page-item-container">
+       <div class="menu-page-item">
+         <img src="event.png">
+         <h4>Events</h4>
+       </div>
+       <div class="menu-page-item">
+         <img src="ai.png">
+         <h4>Chatbot</h4>
+       </div>
+     </div>
+     <div class="menu-page-item-container">
+       <div class="menu-page-item">
+         <img src="friends-sidebar.png">
+         <h4>Friends</h4>
+       </div>
+       <div class="menu-page-item">
+         <img src="user-icon.png">
+         <h4>User support</h4>
+       </div>
+     </div>
+     <div class="menu-page-item-container">
+       <div class="menu-page-item">
+         <img src="logo.png">
+         <h4>Socialbook team</h4>
+       </div>
+       <div class="menu-page-item">
+         <img src="alerm.png">
+         <h4>Reminder</h4>
+       </div>
+     </div>
+     
+     
+     
+     
+     
+     
+     
+     
      <div class="menu-page-lg-button">
        <button class="logout menu-lg">Log Out</button>
      </div>
