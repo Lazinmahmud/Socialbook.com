@@ -272,11 +272,7 @@ function toggleLike(item) {
 
 // প্রোফাইল পেজ থেকে ক্রিয়েট স্টোরি পেজ ওপেন
 
-document.getElementById("profilePageCreateStory").addEventListener("click", function() {
-    setTimeout(function(){
-        document.getElementById("createStorypage").style.top = "0";
-    }, 100);
-});
+
 
 document.getElementById("profilePageOpen").addEventListener("click", function(){
   
@@ -287,19 +283,6 @@ document.getElementById("profilePageOpen").addEventListener("click", function(){
   
   document.getElementById('underline').style.display ='none'
 });
-
-
-document.getElementById("coverCameraClick").addEventListener('click', function(){
-  
-  document.querySelector(".cover-upload-bottom-bar-container").style.top = "0"
-  document.querySelector(".cover-upload-bottom-bar").style.bottom = "0"
-  
-})
-
-
-
-
-
 
 
 
@@ -319,18 +302,6 @@ function toggleDropdownMenu() {
   }
 }
 
-// post create image select 
-
-document.getElementById('fileInput').addEventListener('change', function() {
-        var file = this.files[0];
-        if (file && file.type.startsWith('image/')) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('selectedImage').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
     
 
 // post create page open and close
@@ -553,6 +524,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoBlue").style.display = "none"
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
+   document.querySelector("nav").style.marginTop = "0rem"
  });
  
  document.getElementById("friendNav").addEventListener('click', function(){
@@ -568,6 +540,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoBlue").style.display = "none"
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
+   document.querySelector("nav").style.marginTop = "-3rem"
  });
  
  document.getElementById("msngerNav").addEventListener('click', function(){
@@ -583,6 +556,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoBlue").style.display = "none"
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
+   document.querySelector("nav").style.marginTop = "-3rem"
  });
  
  document.getElementById("notifyNav").addEventListener('click', function(){
@@ -600,6 +574,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".natification-page").style.display = "block"
    document.querySelector(".natification-page").style.display = "block"
    document.querySelector("#newNotify").style.display = "none"
+   document.querySelector("nav").style.marginTop = "-3rem"
  });
  
  document.getElementById("vdoNav").addEventListener('click', function(){
@@ -615,6 +590,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoBlue").style.display = "block"
    document.getElementById("vdoGray").style.display = "none"
    document.querySelector(".natification-page").style.display = "none"
+   document.querySelector("nav").style.marginTop = "-3rem"
  });
  
  
@@ -805,6 +781,7 @@ darkBtnContainer.addEventListener('click', function toggleSwitch2() {
     
     document.querySelector('.app-menu-page').style.display = 'none';
     document.querySelector('nav').style.display = 'block';
+    document.querySelector(".website-body").style.display = "block";
   }, 0700); // 2000 milliseconds = 2 seconds
 });
 
@@ -824,14 +801,16 @@ document.querySelector(".mobail-menu").addEventListener('click', function(){
   setTimeout(function(){
     document.querySelector(".app-menu-page").style.display = "block";
     document.querySelector("nav").style.display = "none";
-  }, 0300); // ১ সেকেন্ডের মধ্যে কাজ করবে
+    document.querySelector(".website-body").style.display = "none";
+  }, 0200); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
 
 document.querySelector(".menuBack").addEventListener('click', function(){
   setTimeout(function(){
     document.querySelector(".app-menu-page").style.display = "none"
   document.querySelector("nav").style.display = "block"
-  }, 0300); // ১ সেকেন্ডের মধ্যে কাজ করবে
+  document.querySelector(".website-body").style.display = "block";
+  }, 0200); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
 
 
@@ -903,7 +882,7 @@ const sendBtn = document.querySelector(".chatMassageSend");
 const messageBox = document.querySelector(".message-box");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
-let API_KEY = "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";
+let API_KEY = "";
 
 sendBtn.onclick = async function () {
   if (messageBar.value.length > 0) {
@@ -911,13 +890,12 @@ sendBtn.onclick = async function () {
     messageBar.value = "";
 
     let userMessage =
-      `<div class="chat userMassage">
+      `<div id="userChat" class="chat userMassage">
         <span>${UserTypedMessage}</span>
-        <img src="profile.jpg">
       </div>`;
 
     let responseIndicator =
-      `<div class="chat response">
+      `<div id="chat-response" class="chat response">
       <img src="logo.png">
       <span class="chatIndecator"</span>
       <div class="typing-dots">
@@ -979,9 +957,14 @@ var AiChat = document.getElementById('AiChat');
 var aiChatPage = document.querySelector('.ai-chat-page');
 
 AiChat.addEventListener('click', function(){
-  aiChatPage.style.display = 'block'
-  document.querySelector('.ai-chat-bottom input').focus();
-  document.getElementById('fristAiMessage').style.display = 'flex'
+  aiChatPage.style.display = 'block';
+  aiChatPage.style.boxShadow = '0 0 20px var(--main-color)';
+
+  setTimeout(function() {
+    aiChatPage.style.boxShadow = '0 0 5px rgba(0,0,0,0.4)';
+  }, 2000); // 1000 মিলিসেকেন্ড (1 সেকেন্ড)
+  
+  document.getElementById('firstAiMessage').style.display = 'flex';
 });
 
 //ai chat close 
@@ -1002,4 +985,23 @@ document.querySelector('.chat-minimize').addEventListener('click', function(){
 
 
 
+// profile-icom click and profile page open 
 
+document.querySelector('.profile-img').addEventListener('click', function(){
+  
+  setTimeout(function(){
+    document.getElementById('profile-page').style.display = 'block'
+    document.querySelector('nav').style.display = 'none'
+    document.querySelector('.main-feed-container').style.display = 'none'
+  }, 0200);
+});
+
+//profile page back button 
+document.querySelector('.profile-back').addEventListener('click', function(){
+  
+  setTimeout(function(){
+    document.getElementById('profile-page').style.display = 'none'
+    document.querySelector('nav').style.display = 'block'
+    document.querySelector('.main-feed-container').style.display = 'block'
+  }, 0200);
+});
