@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#fff">
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="app-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Socialbook</title>
 </head>
@@ -590,7 +590,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea id="commentInputFocus" class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -667,7 +667,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -737,7 +737,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -807,7 +807,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -877,7 +877,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -947,7 +947,7 @@
        </div>
        </div>
        <div class="comment-input">
-         <textarea class="1" rows="1" placeholder="Write a public comment..."></textarea>
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
          <div class="comment-send-btn">
            <i class='bx bxs-send'></i>
          </div>
@@ -1271,7 +1271,8 @@
  
  <div class="no-internet-popup">
    <i class='bx bx-wifi-off'></i>
-   <p>You are currently <br>offline.</p>
+   <p id="dekstopOfflineText">You are currently <br>offline.</p>
+   <p id="mediaQueryOfflineText">You are currently offline.</p>
    <i id="interNetPopupCloseOfline" class='bx bx-x' ></i>
  </div>
  <div class="internet-on-popup">
@@ -1347,6 +1348,105 @@
        <button class="add-story">Add story</button>
      </div>
      
+   <div class="post-create-container-profile-page">
+     <div class="post-create-display-flex">
+       <div class="profile-img">
+       <img id="profileImg" src="profile.jpg">
+     </div>
+     <div class="input-container-media">
+       <p>Share your thoughts on socialbook?</p>
+     </div>
+     </div>
+   </div>
+   
+   
+   <div class="profile-upload-feed-post">
+     <div class="feed-post-header">
+       <div class="profile-img">
+       <img src="profile.jpg">
+       </div>
+       <div class="name-and-post-time">
+         <div class="verified">
+            <h4>Lazim Mahmud
+            <img src="badge.png"> 
+            <span class="profile-update-text">Update his profile picture</span></h4>
+            </div>
+          <div class="post-time">
+            <p class="time-text">Just now</p>
+            <span>•</span>
+            <i class='bx bx-world'></i>
+          </div>  
+         </div>
+       <div class="cross-btn">
+         <img src="three_dot.png">
+       </div>
+     </div>
+     <div  class="post-profile-img-display-box">
+       <img src="profile.jpg">
+     </div>
+     <div class="like-comment-share-show-box">
+       <p class=="like-count">20</p>
+       <div class="comment-and-share">
+         <p>0 Comments</p>
+         <span class="dot">•</span>
+         <p>10 shares</p>
+       </div>
+     </div>
+     
+     <div class="main-activity-icon-container">
+       <div class="icon-container">
+         <div class="activity-btn-like" onclick="toggleLike()">
+         <img id="likeBlue" src="like-red.png">
+          <img id="likeGray" src="like.png">
+         <p class="like-count">0</p>
+         <p class="like-text">Like</p>
+         </div>
+         <div id="commentBtn" class="activity-btn">
+           <img src="comment.png">
+           <p>Comment</p>
+         </div>
+         <div class="activity-btn">
+           <img src="share.png">
+           <p>Share</p>
+         </div>
+       </div>
+     </div>
+     
+     <div class="view-all-cment-container">
+       <button class="viewAllComment">View all comments <i class='bx bx-chevron-down'></i></button>
+     </div>
+     <div class="comment-display-container">
+      <!-- <div class="user-comment-container">
+         <div class="user-comment-profile-container">
+           <div class="user-comment-profile">
+             <img src="profile.jpg">
+           </div>
+         </div>
+         <div class="comment-content">
+           <p>containeruser-comment-container</p>
+         </div>
+       </div>-->
+       
+     </div>
+     
+     
+     <div class="comment-container">
+       <div class="comment-profile-container">
+         <div class="comment-profile">
+         <img src="profile.jpg">
+       </div>
+       </div>
+       <div class="comment-input">
+         <input type="text" id="commentInputFocus" placeholder="Write a public comment...">
+         <div class="comment-send-btn">
+           <i class='bx bxs-send'></i>
+         </div>
+       </div>
+     </div>
+   </div>
+   
+   <br>
+   
    </div>
    
    
@@ -1470,8 +1570,26 @@
      
      
      <div class="menu-page-lg-button">
-       <button class="logout menu-lg">Log Out</button>
+       <button class=" menu-lg">Log Out</button>
      </div>
+     
+     
+     
+     
+     
+     <div class="lg-popup-opacity">
+       <div class="lg-popup">
+         <h4>Log out?</h4>
+         <p>Are you sure you want to log out?</p>
+         <div class="lg-button-container">
+           <button class="lg-cancel">CANCEL</button>
+         <button class="logout lg-conform">LOG OUT</button>
+         </div>
+       </div>
+     </div>
+     
+     
+     
    </div>
    
  
@@ -1507,6 +1625,7 @@
       document.querySelectorAll('.logout').forEach(function(element) {
     element.addEventListener("click", function() {
         // Remove user login info from localStorage
+        
         localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userEmail');
         
@@ -1514,8 +1633,6 @@
         window.location.href = "index.html";
     });
 });
-
-
 
 
     </script>
