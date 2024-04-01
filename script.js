@@ -659,7 +659,7 @@ window.addEventListener('load', function() {
 // বাটন নিয়ে ক্লিক ইভেন্ট হ্যান্ডলার
 document.querySelector('.comment-send-btn').addEventListener('click', function() {
     // ইনপুট এলিমেন্ট থেকে ইউজারের কমেন্ট টেক্সট নিতে
-    var userComment = document.querySelector('.comment-input textarea').value;
+    var userComment = document.querySelector('.comment-input input').value;
     
     // নতুন কমেন্ট কন্টেন্ট এলিমেন্ট তৈরি করে ইউজারের কমেন্ট এড করা
     var newCommentContent = document.createElement('div');
@@ -700,7 +700,7 @@ document.querySelector('.comment-send-btn').addEventListener('click', function()
     viewAllCommentsButton.innerHTML = "Hide all comments <i class='bx bx-chevron-up'></i>";
     
     // ইনপুট এলিমেন্টের মান মুছে ফেলা
-    document.querySelector('.comment-input textarea').value = "";
+    document.querySelector('.comment-input input').value = "";
 });
 
 
@@ -779,10 +779,8 @@ darkBtnContainer.addEventListener('click', function toggleSwitch2() {
     // Save the new logo path to local storage
     localStorage.setItem('logoPath', newLogoPath);
     
-    document.querySelector('.app-menu-page').style.display = 'none';
-    document.querySelector('nav').style.display = 'block';
-    document.querySelector(".website-body").style.display = "block";
-  }, 0700); // 2000 milliseconds = 2 seconds
+    
+  }, 0100); // 2000 milliseconds = 2 seconds
 });
 
 // When the page loads, check if there's a saved logo path in local storage
@@ -802,7 +800,7 @@ document.querySelector(".mobail-menu").addEventListener('click', function(){
     document.querySelector(".app-menu-page").style.display = "block";
     document.querySelector("nav").style.display = "none";
     document.querySelector(".website-body").style.display = "none";
-  }, 0200); // ১ সেকেন্ডের মধ্যে কাজ করবে
+  }, 0100); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
 
 document.querySelector(".menuBack").addEventListener('click', function(){
@@ -810,7 +808,7 @@ document.querySelector(".menuBack").addEventListener('click', function(){
     document.querySelector(".app-menu-page").style.display = "none"
   document.querySelector("nav").style.display = "block"
   document.querySelector(".website-body").style.display = "block";
-  }, 0200); // ১ সেকেন্ডের মধ্যে কাজ করবে
+  }, 0100); // ১ সেকেন্ডের মধ্যে কাজ করবে
 });
 
 
@@ -1005,3 +1003,19 @@ document.querySelector('.profile-back').addEventListener('click', function(){
     document.querySelector('.main-feed-container').style.display = 'block'
   }, 0200);
 });
+
+
+
+// logout click popup open 
+
+document.querySelector('.menu-lg').addEventListener('click', function(){
+  document.querySelector('.lg-popup-opacity').style.display = 'flex'
+})
+
+// logout click popup close 
+document.querySelector('.lg-cancel').addEventListener('click', function(){
+  
+  setTimeout(function() {
+    document.querySelector('.lg-popup-opacity').style.display = 'none'
+}, 0100);
+})
