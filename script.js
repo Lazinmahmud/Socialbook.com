@@ -528,6 +528,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "0rem"
+   document.querySelector(".nav-media-underline").style.marginLeft = "0%"
  });
  
  document.getElementById("friendNav").addEventListener('click', function(){
@@ -544,6 +545,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
+   document.querySelector(".nav-media-underline").style.marginLeft = "20%"
  });
  
  document.getElementById("msngerNav").addEventListener('click', function(){
@@ -560,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
+   document.querySelector(".nav-media-underline").style.marginLeft = "41%"
  });
  
  document.getElementById("notifyNav").addEventListener('click', function(){
@@ -578,6 +581,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".natification-page").style.display = "block"
    document.querySelector("#newNotify").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
+   document.querySelector(".nav-media-underline").style.marginLeft = "62%"
  });
  
  document.getElementById("vdoNav").addEventListener('click', function(){
@@ -594,6 +598,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "none"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
+   document.querySelector(".nav-media-underline").style.marginLeft = "81%"
  });
  
  
