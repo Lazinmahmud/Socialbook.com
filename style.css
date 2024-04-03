@@ -135,7 +135,7 @@ nav{
   display: none;
 }
 .navIcon img{
-  width: 1.7rem;
+  width: 1.6rem;
   pointer-events: none;
 }
 .nav-logo-media-query img{
@@ -2977,7 +2977,7 @@ nav{
   background: var(--active-color);
 }
 .mobail-search-box i{
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--text-color);
 }
 .mobail-menu i{
@@ -3291,5 +3291,14 @@ nav{
   margin-top: 1rem;
   padding: 0.7rem;
   font-size: 0.9rem;
+}
+.nav-media-underline{
+  width: 19%;
+  height: 2.7px;
+  margin-top: -2.8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: var(--main-color);
+  position: absolute;
 }
 }
