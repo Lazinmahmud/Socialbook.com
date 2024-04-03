@@ -15,7 +15,6 @@ body {
 }
 ::-webkit-scrollbar-thumb {
     display: none;
-    background: red;
 }
 .dark-theme{
   --body-color: #000;
@@ -447,9 +446,6 @@ input[type="radio"] {
   font-size: 0.9rem;
   color: var(--text-color);
 }
-#myActiveStatus{
-  transition: background 0.9s;
-}
 .friendOnline{
   background: #01A625;
   width: 12px;
@@ -459,6 +455,18 @@ input[type="radio"] {
   bottom: 0;
   right: 2px;
   border: 1px solid var(--bg-color);
+  transition: background 0.9s;
+}
+.friendOnlineMediaQuery{
+  background: #01A625;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2px;
+  right: 1px;
+  border: 1px solid var(--bg-color);
+  transition: background 0.9s;
 }
 .left-sidebar{
   width: 25%;
@@ -666,6 +674,9 @@ input[type="radio"] {
   background: var(--off-white-color);
   border-radius: 1rem;
   animation: pulse 1s infinite alternate;
+}
+.profile-img{
+  position: relative;
 }
 .profile-img img:active{
   opacity: 0.30;
@@ -956,7 +967,7 @@ input[type="radio"] {
   object-fit: cover;
 }
 .create-stroy:active{
-  transform: scale(0.8);
+  transform: scale(0.97);
 }
 .user-story:active{
   transform: scale(0.97);
@@ -1314,7 +1325,7 @@ input[type="radio"] {
 }
 .activity-btn-like img{
   width: 1.5rem;
-  animation: heartBeat 0.3s ease-in-out;
+  animation: heartBeat 0.2s ease-in-out;
 }
 
 @keyframes heartBeat {
@@ -1331,6 +1342,7 @@ input[type="radio"] {
   font-size: 0.9rem;
 }
 #likeBlue{
+  width: 1.5rem;
   display: none;
 }
 #likeGray{
@@ -1343,7 +1355,7 @@ input[type="radio"] {
   position: fixed;
   top: 5rem;
   overflow-y: scroll;
-  
+  display: none;
 }
 .cover-photo-container{
   background: #efefef;
@@ -2112,6 +2124,12 @@ input[type="radio"] {
   background: var(--bg-color);
   border-radius: 8px;
 }
+.lg-popup h4{
+  color: var(--text-color);
+}
+.lg-popup p{
+  color: var(--text-color);
+}
 .lg-popup button{
   margin-top: 35px;
   padding: 0.8rem;
@@ -2126,6 +2144,7 @@ input[type="radio"] {
 .lg-cancel{
   margin-left: auto;
   background: transparent;
+  color: var(--text-color);
 }
 .lg-cancel:active{
   background: var(--off-white-color);
@@ -3089,7 +3108,7 @@ nav{
   position: fixed;
   top: 0;
   height: 100vh;
-  display: none;
+  
   background: var(--app-page-color);
 }
 .friend-page-navbar{
@@ -3245,5 +3264,32 @@ nav{
   padding: 1rem;
   background: var(--bg-color);
   border-bottom: 8px solid #ccc;
+}
+.create-story-page{
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  border-radius: 0;
+}
+.create-story-page-header h4{
+  font-size: 1rem;
+}
+.cross-btn-story{
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.cross-btn-story img{
+  width: 2rem;
+}
+.story-content textarea{
+  font-size: 1.1rem;
+}
+.story-content{
+  height: 27rem;
+}
+.share-now-btn{
+  margin-top: 1rem;
+  padding: 0.7rem;
+  font-size: 0.9rem;
 }
 }
