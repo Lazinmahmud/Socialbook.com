@@ -127,7 +127,7 @@ const textarea = document.getElementById('storyTextContent');
 const shareBtn = document.getElementById('shareBtn');
 
 textarea.addEventListener('input', function() {
-    if (textarea.value.split(' ').length >= 6) {
+    if (textarea.value.split(' ').length >= 1) {
         shareBtn.style.display = 'block';
     } else {
         shareBtn.style.display = 'none';
@@ -144,12 +144,14 @@ textarea.addEventListener('blur', function() {
 // create story page open 
 document.getElementById("CreateStory").addEventListener("click", function() {
     document.querySelector('.create-story-page-opachity').style.display = 'flex'
+    document.querySelector('nav').style.display = 'none'
 });
 // create story page close 
 document.getElementById("storyPageClose").addEventListener("click", function() {
     
     document.querySelector('.create-story-page-opachity').style.display = 'none'
     document.getElementById("storyTextContent").value = "";
+    document.querySelector('nav').style.display = 'block'
 });
 
 
@@ -228,8 +230,9 @@ document.getElementById("shareBtn").addEventListener("click", function() {
             setTimeout(() => {
                 updateProgress(i);
             }, i * 50); // Update every 50 milliseconds
+            document.querySelector('nav').style.display = 'block'
         }
-    }, 1000);
+    }, 0500);
 });
 
 
@@ -821,7 +824,7 @@ window.addEventListener('load', () => {
 
     const noInternetPopup = document.querySelector('.no-internet-popup');
     const internetOnPopup = document.querySelector('.internet-on-popup');
-    const myActiveStatus = document.getElementById('myActiveStatus');
+    const myActiveStatus = document.querySelector('.myActiveStatus');
 
     function updateOnlineStatus() {
         if (!isLoggedIn()) {
@@ -855,6 +858,20 @@ window.addEventListener('load', () => {
     window.addEventListener('offline', updateOnlineStatus);
 
     updateOnlineStatus();
+
+    const myActiveStatuses = document.querySelectorAll('.myActiveStatus');
+
+    window.addEventListener('online', () => {
+        myActiveStatuses.forEach(status => {
+            status.style.backgroundColor = '#01A625'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+        });
+    });
+
+    window.addEventListener('offline', () => {
+        myActiveStatuses.forEach(status => {
+            status.style.backgroundColor = '#ccc'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+        });
+    });
 });
 
 
@@ -880,7 +897,7 @@ const sendBtn = document.querySelector(".chatMassageSend");
 const messageBox = document.querySelector(".message-box");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
-let API_KEY = "";
+let API_KEY = "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";
 
 sendBtn.onclick = async function () {
   if (messageBar.value.length > 0) {
