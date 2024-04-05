@@ -294,7 +294,7 @@
      <div class="post-create-display-flex">
        <div class="profile-img">
          <div class="myActiveStatus friendOnlineMediaQuery"></div>
-       <img id="profileImg" src="profile.jpg">
+       <img class="selectedImg" id="profileImg" src="profile.jpg">
      </div>
      <div class="input-container-media">
        <p>Share your thoughts on socialbook?</p>
@@ -308,7 +308,7 @@
      <div class="story-scroll-container">
        <div id="CreateStory" class="create-stroy">
          <div class="story-img">
-           <img id="profileImg" src="profile.jpg">
+           <img class="selectedImg" id="profileImg" src="profile.jpg">
          </div>
          <div class="create-story-bg">
            <div class="center-line">
@@ -473,7 +473,7 @@
      <div class="text-feed-post">
      <div class="feed-post-header">
        <div class="profile-img">
-       <img src="profile.jpg">
+       <img class="selectedImg" src="profile.jpg">
        </div>
        <div class="name-and-post-time">
     <div class="verified">
@@ -518,7 +518,7 @@
   <div class="profile-upload-feed-post">
      <div class="feed-post-header">
        <div class="profile-img">
-       <img src="profile.jpg">
+       <img class="selectedImg" src="profile.jpg">
        </div>
        <div class="name-and-post-time">
          <div class="verified">
@@ -537,7 +537,7 @@
        </div>
      </div>
      <div  class="post-profile-img-display-box">
-       <img src="profile.jpg">
+       <img class="selectedImg" src="profile.jpg">
      </div>
      <div class="like-comment-share-show-box">
        <p class=="like-count">20</p>
@@ -1319,6 +1319,7 @@
      <div class="profile-photo-container">
        <div id="profileCameraClick" class="profile-upload-box">
          <i class='bx bxs-camera'></i>
+         <input type="file" id="fileInput" style="display: none;">
        </div>
        <img class="selectedImg" src="profile.jpg">
      </div>
@@ -1483,7 +1484,7 @@
        </div>
        <div class="menu-page-profile-name">
          <div class="verified">
-           <h4>Lazim Mahmud</h4>
+           <h4 id="userFullName"></h4>
            <img src="badge.png">
          </div>
          <p>View your profile</p>
