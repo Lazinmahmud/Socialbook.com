@@ -902,7 +902,7 @@ const sendBtn = document.querySelector(".chatMassageSend");
 const messageBox = document.querySelector(".message-box");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
-let API_KEY = "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";
+let API_KEY = ";
 
 sendBtn.onclick = async function () {
   if (messageBar.value.length > 0) {
@@ -1041,3 +1041,24 @@ document.querySelector('.lg-cancel').addEventListener('click', function(){
     document.querySelector('.lg-popup-opacity').style.display = 'none'
 }, 0100);
 })
+
+
+
+
+document.getElementById("profileCameraClick").addEventListener("click", function() {
+    document.getElementById("fileInput").click();
+});
+
+document.getElementById("fileInput").addEventListener("change", function() {
+    var file = this.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var imgElements = document.querySelectorAll('.selectedImg');
+            imgElements.forEach(function(imgElement) {
+                imgElement.src = e.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    }
+});
