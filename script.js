@@ -902,7 +902,7 @@ const sendBtn = document.querySelector(".chatMassageSend");
 const messageBox = document.querySelector(".message-box");
 
 let API_URL = "https://api.openai.com/v1/chat/completions";
-let API_KEY = ";
+let API_KEY = "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";
 
 sendBtn.onclick = async function () {
   if (messageBar.value.length > 0) {
