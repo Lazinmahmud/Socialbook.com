@@ -2984,7 +2984,11 @@ nav{
   font-size: 2rem;
   color: var(--text-color);
 }
+#home_Blue{
+  width: 1.5rem;
+}
 #home_Gray{
+  width: 1.5rem;
   display: none;
 }
 #frindBlue{
