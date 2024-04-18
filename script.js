@@ -529,6 +529,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "0rem"
    document.querySelector(".nav-media-underline").style.marginLeft = "0%"
+   document.querySelector('.main-video-container').style.display = 'none'
  });
  
  document.getElementById("friendNav").addEventListener('click', function(){
@@ -599,6 +600,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
    document.querySelector(".nav-media-underline").style.marginLeft = "81%"
+   document.querySelector('.main-video-container').style.display = 'flex'
  });
  
  
@@ -844,11 +846,11 @@ window.addEventListener('load', () => {
                     internetOnPopup.style.bottom = '-5rem';
                 }, 8000); // 3 সেকেন্ডের মধ্যে বন্ধ করা
             }
-            myActiveStatus.style.backgroundColor = '#01A625'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+            myActiveStatus.style.display = 'block'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
         } else {
             noInternetPopup.style.bottom = '2rem';
             internetOnPopup.style.bottom = '-5rem';
-            myActiveStatus.style.backgroundColor = '#ccc'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+            myActiveStatus.style.display = 'none'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
         }
         isFirstLogin = false; // প্রথম লগইন হিসাবে চিহ্নিত করা পরে আপডেট করা
     }
@@ -868,13 +870,13 @@ window.addEventListener('load', () => {
 
     window.addEventListener('online', () => {
         myActiveStatuses.forEach(status => {
-            status.style.backgroundColor = '#01A625'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+            status.style.display = 'block'; // ইন্টারনেট সংযোগ সার্ভিস সক্রিয় হলে ব্যাকগ্রাউন্ড রং পরিবর্তন করা
         });
     });
 
     window.addEventListener('offline', () => {
         myActiveStatuses.forEach(status => {
-            status.style.backgroundColor = '#ccc'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
+            status.style.display = 'none'; // ইন্টারনেট সংযোগ ছাড়া হলে ডিফল্ট ব্যাকগ্রাউন্ড রং পরিবর্তন করা
         });
     });
 });
@@ -1010,7 +1012,7 @@ document.querySelector('.chat-minimize').addEventListener('click', function(){
 document.querySelector('.profile-img').addEventListener('click', function(){
   
   setTimeout(function(){
-    document.getElementById('profile-page').style.display = 'block'
+    document.getElementById('profile-page').style.top = '0'
     document.querySelector('nav').style.display = 'none'
     document.querySelector('.main-feed-container').style.display = 'none'
   }, 0200);
@@ -1020,7 +1022,7 @@ document.querySelector('.profile-img').addEventListener('click', function(){
 document.querySelector('.profile-back').addEventListener('click', function(){
   
   setTimeout(function(){
-    document.getElementById('profile-page').style.display = 'none'
+    document.getElementById('profile-page').style.top = '100%'
     document.querySelector('nav').style.display = 'block'
     document.querySelector('.main-feed-container').style.display = 'block'
   }, 0200);
