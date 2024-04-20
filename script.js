@@ -533,9 +533,12 @@ document.addEventListener("DOMContentLoaded", function() {
    
  var loaderBox = document.querySelector('.loader-box');
    loaderBox.style.top = '8rem';
-  
+   
+  setTimeout(function() {
+    loaderBox.style.zIndex = '1'
+  }, 200);
 
-  // Set a timeout to hide the loader box and refresh the page after 2 seconds
+
   setTimeout(function() {
     loaderBox.style.display = 'none';
     location.reload();
