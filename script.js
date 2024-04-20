@@ -530,6 +530,16 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector("nav").style.marginTop = "0rem"
    document.querySelector(".nav-media-underline").style.marginLeft = "0%"
    document.querySelector('.main-video-container').style.display = 'none'
+   
+ var loaderBox = document.querySelector('.loader-box');
+   loaderBox.style.top = '8rem';
+  
+
+  // Set a timeout to hide the loader box and refresh the page after 2 seconds
+  setTimeout(function() {
+    loaderBox.style.display = 'none';
+    location.reload();
+  }, 1500);
  });
  
  document.getElementById("friendNav").addEventListener('click', function(){
@@ -1064,3 +1074,5 @@ document.getElementById("fileInput").addEventListener("change", function() {
         reader.readAsDataURL(file);
     }
 });
+
+
