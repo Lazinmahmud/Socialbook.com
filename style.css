@@ -41,7 +41,7 @@ body {
   --bg-color: #fff;
   --nav-color: #ffff;
   --main-color: #012FFF;
-  --body-color: #E1E9F0;
+  --body-color: #E6EDF4;
   --off-white-color: #efefef;
   --text-color: #000;
   --span-text-color: #808080;
@@ -108,12 +108,12 @@ nav{
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--nav-color);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
   transition: top 0.1s;
-  display: flex;
+  display: none;
 }
 .loader {
   border: 3px solid transparent;
@@ -2129,13 +2129,14 @@ input[type="radio"] {
   font-size: 14px;
 }
 .app-menu-page{
-  background: var(--app-page-color);
+  background: var(--body-color);
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   overflow-y: scroll;
-  display: none;
+  left: 100%;
+  transition: 0.2s;
 }
 .lg-popup-opacity{
   width: 100%;
@@ -2193,27 +2194,12 @@ input[type="radio"] {
 .menu-page-nav{
   width: 100%;
   height: 3.5rem;
-  background: var(--bg-color);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  background: var(--body-color);
   display: flex;
   align-items: center;
   padding-left: 0.8rem;
   position: fixed;
-  top: 0;
-}
-.menuBack{
-  border-radius: 5px;
-  padding: 5px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-}
-.menuBack i{
-  color: var(--text-color);
-  font-size: 1.8rem;
-}
-.menuBack:active{
-  background: var(--off-white-color);
+  top: 2.9rem;
 }
 .menu-page-nav h4{
   margin-left: 10px;
@@ -2221,11 +2207,11 @@ input[type="radio"] {
   font-size: 1.5rem;
 }
 .menu-page-profile-container{
-  margin-top: 5rem;
+  margin-top: 7rem;
   margin-left: 5%;
   width: 90%;
   background: var(--bg-color);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 8px;
   display: flex;
@@ -2272,7 +2258,7 @@ input[type="radio"] {
   height: 100%;
   border-radius: 0.5rem;
   background: var(--bg-color);
-  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  box-shadow: 0 3px 4px rgba(0,0,0,0.1);
   padding: 0.8rem;
 }
 .menu-page-item:active{
@@ -2293,7 +2279,7 @@ input[type="radio"] {
   margin-left: 5%;
   width: 90%;
   background: var(--bg-color);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 8px;
   display: flex;
@@ -2314,7 +2300,7 @@ input[type="radio"] {
   margin-left: 5%;
   width: 90%;
   background: var(--bg-color);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 8px;
   display: flex;
@@ -2735,8 +2721,8 @@ body{
 nav{
   height: 6rem;
   box-shadow: none;
-  box-shadow: 0 0 4px rgba(0,0,0,0.3);
-  transition: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: 0.1s;
 }
 .dark-theme nav {
     border-bottom: 1px solid var(--border-color);
@@ -2968,7 +2954,6 @@ nav{
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: var(--off-white-color);
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -2980,21 +2965,18 @@ nav{
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: var(--off-white-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .mobail-menu:active{
-  background: var(--active-color);
+  background: var(--off-white-color);
 }
-.mobail-search-box i{
-  font-size: 1.7rem;
-  color: var(--text-color);
+.mobail-search-box img{
+  width: 1.6rem;
 }
-.mobail-menu i{
-  font-size: 2rem;
-  color: var(--text-color);
+.mobail-menu img{
+  width: 1.6rem;
 }
 #home_Blue{
   width: 1.5rem;
@@ -3018,6 +3000,29 @@ nav{
 }
 #vdoBlue{
   display: none;
+}
+#navMenuProfile{
+  width: 31px;
+  height: 31px;
+  border: 2px solid #808080;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nav-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #808080;
+  position: absolute;
+  bottom: 6px;
+  right: 15px;
+}
+.nav-menu i{
+  color: #fff;
+  font-size: 13px;
 }
 .loading-feed{
   border-radius: 0;
@@ -3133,7 +3138,7 @@ nav{
   box-shadow: 0 0 4px rgba(0,0,0,0.3);
   position: fixed;
   top: 0;
-  display: flex;
+  display: none;
   overflow-y: scroll;
   align-items: center;
   padding-left: 0.8rem;
