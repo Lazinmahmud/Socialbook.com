@@ -520,8 +520,7 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("frindGray").style.display = "block"
    document.getElementById("home_Gray").style.display = "none"
    document.getElementById("home_Blue").style.display = "block"
-   document.getElementById("msngerBlue").style.display = "none"
-   document.getElementById("msngerGray").style.display = "block"
+   
    document.getElementById("notifyBlue").style.display = "none"
    document.getElementById("notifyGray").style.display = "block"
    document.getElementById("vdoBlue").style.display = "none"
@@ -530,19 +529,24 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector("nav").style.marginTop = "0rem"
    document.querySelector(".nav-media-underline").style.marginLeft = "0%"
    document.querySelector('.main-video-container').style.display = 'none'
-   
- var loaderBox = document.querySelector('.loader-box');
+   document.getElementById('navMenuProfile').style.border = '2px solid #808080'
+   document.querySelector('.nav-menu i').style.color = '#fff'
+   document.querySelector('.nav-menu').style.backgroundColor = '#808080'
+   document.querySelector(".app-menu-page").style.left = "100%";
+    document.querySelector(".website-body").style.display = "block";
+ /*var loaderBox = document.querySelector('.loader-box');
    loaderBox.style.top = '8rem';
-   
+   loaderBox.style.display = 'flex'
   setTimeout(function() {
     loaderBox.style.zIndex = '1'
+    
   }, 200);
 
 
   setTimeout(function() {
     loaderBox.style.display = 'none';
     location.reload();
-  }, 1500);
+  }, 1500);*/
  });
  
  document.getElementById("friendNav").addEventListener('click', function(){
@@ -551,38 +555,21 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("frindGray").style.display = "none"
    document.getElementById("home_Gray").style.display = "block"
    document.getElementById("home_Blue").style.display = "none"
-   document.getElementById("msngerBlue").style.display = "none"
-   document.getElementById("msngerGray").style.display = "block"
-   document.getElementById("notifyBlue").style.display = "none"
-   document.getElementById("notifyGray").style.display = "block"
-   document.getElementById("vdoBlue").style.display = "none"
-   document.getElementById("vdoGray").style.display = "block"
-   document.querySelector(".natification-page").style.display = "none"
-   document.querySelector("nav").style.marginTop = "-3rem"
-   document.querySelector(".nav-media-underline").style.marginLeft = "20%"
- });
- 
- document.getElementById("msngerNav").addEventListener('click', function(){
    
-   document.getElementById("msngerBlue").style.display = "block"
-   document.getElementById("msngerGray").style.display = "none"
-   document.getElementById("frindGray").style.display = "block"
-   document.getElementById("frindBlue").style.display = "none"
-   document.getElementById("home_Gray").style.display = "block"
-   document.getElementById("home_Blue").style.display = "none"
    document.getElementById("notifyBlue").style.display = "none"
    document.getElementById("notifyGray").style.display = "block"
    document.getElementById("vdoBlue").style.display = "none"
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
-   document.querySelector(".nav-media-underline").style.marginLeft = "41%"
+   document.getElementById('navMenuProfile').style.border = '2px solid #808080'
+   document.querySelector('.nav-menu i').style.color = '#fff'
+   document.querySelector('.nav-menu').style.backgroundColor = '#808080'
+   document.querySelector(".nav-media-underline").style.marginLeft = "20%"
  });
  
  document.getElementById("notifyNav").addEventListener('click', function(){
    
-   document.getElementById("msngerBlue").style.display = "none"
-   document.getElementById("msngerGray").style.display = "block"
    document.getElementById("frindGray").style.display = "block"
    document.getElementById("frindBlue").style.display = "none"
    document.getElementById("home_Gray").style.display = "block"
@@ -595,13 +582,17 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".natification-page").style.display = "block"
    document.querySelector("#newNotify").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
-   document.querySelector(".nav-media-underline").style.marginLeft = "62%"
+   document.getElementById('navMenuProfile').style.border = '2px solid #808080'
+   document.querySelector('.nav-menu i').style.color = '#fff'
+   document.querySelector('.nav-menu').style.backgroundColor = '#808080'
+   document.querySelector(".nav-media-underline").style.marginLeft = "41%"
+   document.querySelector(".app-menu-page").style.left = "100%";
+   document.querySelector(".website-body").style.display = "block";
  });
  
  document.getElementById("vdoNav").addEventListener('click', function(){
    
-   document.getElementById("msngerBlue").style.display = "none"
-   document.getElementById("msngerGray").style.display = "block"
+   
    document.getElementById("frindGray").style.display = "block"
    document.getElementById("frindBlue").style.display = "none"
    document.getElementById("home_Gray").style.display = "block"
@@ -612,9 +603,31 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "none"
    document.querySelector(".natification-page").style.display = "none"
    document.querySelector("nav").style.marginTop = "-3rem"
-   document.querySelector(".nav-media-underline").style.marginLeft = "81%"
+   document.querySelector(".nav-media-underline").style.marginLeft = "62%"
+   document.getElementById('navMenuProfile').style.border = '2px solid #808080'
+   document.querySelector('.nav-menu i').style.color = '#fff'
+   document.querySelector('.nav-menu').style.backgroundColor = '#808080'
    document.querySelector('.main-video-container').style.display = 'flex'
  });
+ 
+ document.getElementById('profileNav').addEventListener('click', function(){
+   document.getElementById('navMenuProfile').style.border = '2px solid var(--main-color)'
+   document.querySelector('.nav-menu').style.backgroundColor = '#fff'
+   document.querySelector('.nav-menu i').style.color = 'var(--main-color)'
+   document.querySelector('.nav-menu').style.border = '1px solid #808080'
+   document.querySelector(".nav-media-underline").style.marginLeft = "81%"
+   document.querySelector("nav").style.marginTop = "-3rem"
+   document.getElementById("home_Gray").style.display = "block"
+   document.getElementById("home_Blue").style.display = "none"
+   document.getElementById("frindGray").style.display = "block"
+   document.getElementById("frindBlue").style.display = "none"
+   document.getElementById("notifyBlue").style.display = "none"
+   document.getElementById("notifyGray").style.display = "block"
+   document.getElementById("vdoBlue").style.display = "none"
+   document.getElementById("vdoGray").style.display = "block"
+   document.querySelector(".app-menu-page").style.left = "0";
+    document.querySelector(".website-body").style.display = "none";
+ })
  
  
 // লোডিং স্টেটমেন্ট ও ফিড কন্টেন্ট এর ক্লাস নেইম গুলি
@@ -818,21 +831,9 @@ window.addEventListener('load', function() {
 
 
 
-document.querySelector(".mobail-menu").addEventListener('click', function(){
-  setTimeout(function(){
-    document.querySelector(".app-menu-page").style.display = "block";
-    document.querySelector("nav").style.display = "none";
-    document.querySelector(".website-body").style.display = "none";
-  }, 0100); // ১ সেকেন্ডের মধ্যে কাজ করবে
-});
 
-document.querySelector(".menuBack").addEventListener('click', function(){
-  setTimeout(function(){
-    document.querySelector(".app-menu-page").style.display = "none"
-  document.querySelector("nav").style.display = "block"
-  document.querySelector(".website-body").style.display = "block";
-  }, 0100); // ১ সেকেন্ডের মধ্যে কাজ করবে
-});
+
+
 
 
 
