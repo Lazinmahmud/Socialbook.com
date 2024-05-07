@@ -2034,32 +2034,6 @@ input[type="radio"] {
   font-size: 1rem;
   color: var(--text-color);
 }
-.video-feed-container{
-  width: 60%;
-  height: 100%;
-  
-  padding-top: 1rem;
-  padding-right: 1rem;
-  overflow-y: scroll;
-}
-.video-feed{
-  width: 100%;
-  height: 30rem;
-  background: var(--bg-color);
-  
-  border-radius: 0.7rem;
-  margin-bottom: 1rem;
-}
-.video-play-container{
-  margin-top: 1rem;
-  width: 100%;
-  height: 315px;
-  background: var(--off-white-color);
-}
-.video-play-container iframe{
-  width: 100%;
-  height: 100%;
-}
 .open_selcreen_page{
   width: 100%;
   height: 100vh;
@@ -3315,20 +3289,22 @@ nav{
 .video-sidebar{
   display: none;
 }
-.video-feed-container{
-  background: #fff;
+.video-feed-page{
   width: 100%;
-  padding-right: 0;
-  padding-top: 0;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  background: #000;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
-.main-video-container{
-  top: 2.9rem;
-  
+.video-feed-container{
+  width: 100%;
+  height: 100vh;
 }
-.video-feed{
-  height: 25rem;
-}
-.video-play-container{
-  height: 220px;
+.video-feed-container video{
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
 }
 }
