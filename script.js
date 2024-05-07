@@ -534,6 +534,8 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector('.nav-menu').style.backgroundColor = '#808080'
    document.querySelector(".app-menu-page").style.left = "100%";
     document.querySelector(".website-body").style.display = "block";
+    document.querySelector('nav').style.backgroundColor = '#fff'
+    document.querySelector('nav').style.borderBottom = '1px solid #ccc'
  /*var loaderBox = document.querySelector('.loader-box');
    loaderBox.style.top = '8rem';
    loaderBox.style.display = 'flex'
@@ -566,6 +568,8 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector('.nav-menu i').style.color = '#fff'
    document.querySelector('.nav-menu').style.backgroundColor = '#808080'
    document.querySelector(".nav-media-underline").style.marginLeft = "20%"
+   document.querySelector('nav').style.backgroundColor = '#fff'
+   document.querySelector('nav').style.borderBottom = '1px solid #ccc'
  });
  
  document.getElementById("notifyNav").addEventListener('click', function(){
@@ -588,6 +592,8 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector(".nav-media-underline").style.marginLeft = "41%"
    document.querySelector(".app-menu-page").style.left = "100%";
    document.querySelector(".website-body").style.display = "block";
+   document.querySelector('nav').style.backgroundColor = '#fff'
+   document.querySelector('nav').style.borderBottom = '1px solid #ccc'
  });
  
  document.getElementById("vdoNav").addEventListener('click', function(){
@@ -608,6 +614,9 @@ document.addEventListener("DOMContentLoaded", function() {
    document.querySelector('.nav-menu i').style.color = '#fff'
    document.querySelector('.nav-menu').style.backgroundColor = '#808080'
    document.querySelector('.main-video-container').style.display = 'flex'
+   document.querySelector('nav').style.backgroundColor = '#212121'
+   document.querySelector('nav').style.borderBottom = '1px solid #808080'
+   
  });
  
  document.getElementById('profileNav').addEventListener('click', function(){
@@ -627,6 +636,8 @@ document.addEventListener("DOMContentLoaded", function() {
    document.getElementById("vdoGray").style.display = "block"
    document.querySelector(".app-menu-page").style.left = "0";
     document.querySelector(".website-body").style.display = "none";
+    document.querySelector('nav').style.backgroundColor = '#fff'
+    document.querySelector('nav').style.borderBottom = '1px solid #ccc'
  })
  
  
@@ -1080,3 +1091,37 @@ document.getElementById("fileInput").addEventListener("change", function() {
 });
 
 
+
+// video feed making
+
+document.querySelector('.video-feed-page').addEventListener('scroll', function() {
+    var videos = document.querySelectorAll('video');
+    var visibleVideos = [];
+
+    // যে ভিডিওগুলি স্ক্রিনে দৃশ্যমান, তাদের সংগ্রহ করুন
+    videos.forEach(function(video) {
+        var videoRect = video.getBoundingClientRect();
+        if (videoRect.top >= 0 && videoRect.bottom <= window.innerHeight) {
+            visibleVideos.push(video);
+        }
+    });
+
+    // যদি কোনও ভিডিও স্ক্রিনে দৃশ্যমান না থাকে, সব ভিডিও বন্ধ করুন
+    if (visibleVideos.length === 0) {
+        videos.forEach(function(video) {
+            video.pause();
+        });
+    }
+
+    // যদি কোনও ভিডিও স্ক্রিনে দৃশ্যমান থাকে, সেই ভিডিওটি চালু করুন
+    else {
+        visibleVideos[0].play();
+    }
+
+    // শুধুমাত্র একটি ভিডিও চালু থাকতে থাকতে নির্দিষ্ট ভিডিও চালু করুন
+    if (visibleVideos.length > 1) {
+        for (var i = 1; i < visibleVideos.length; i++) {
+            visibleVideos[i].pause();
+        }
+    }
+});
